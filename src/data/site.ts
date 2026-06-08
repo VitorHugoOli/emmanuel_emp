@@ -8,8 +8,8 @@
 export const empresa = {
   nome: 'Emmanuel Serviços',
   cnpj: '04.778.491/0001-57',
-  whatsapp: '+5531984484731',
-  whatsappDisplay: '+55 (31) 98448-4731',
+  whatsapp: '+5531984494731',
+  whatsappDisplay: '+55 (31) 98449-4731',
   email: 'contato@emmanuelservicos.com.br',
   instagram: 'emmanuelservicos',
   cidade: 'Minas Gerais',

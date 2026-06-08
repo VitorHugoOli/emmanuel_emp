@@ -10,7 +10,7 @@ Você é um designer de produto sênior. Quero um **protótipo de alta fidelidad
 
 ### A empresa
 **Emmanuel Serviços** — construção civil em Minas Gerais. Atua em duas frentes: (1) constrói e **vende empreendimentos próprios** (casas e apartamentos) — esse é o destaque do site; (2) presta **serviços**: Reforma, Consultoria, Construção, Mão de obra e Empréstimo de material.
-- WhatsApp / telefone: **+55 (31) 98448-4731**
+- WhatsApp / telefone: **+55 (31) 98449-4731**
 - CNPJ: 04.778.491/0001-57
 - Não há logo — use um **wordmark tipográfico** "Emmanuel Serviços" (pode ter um detalhe sutil, ex. um traço/ícone simples de telhado/casa em terracota).
 
@@ -49,7 +49,7 @@ Objetivo nº 1: **vender empreendimentos**. Objetivo nº 2: **gerar contato por 
 
 ### Requisitos técnicos do protótipo
 - Um único arquivo `.html` autocontido.
-- Todos os links de WhatsApp apontando para `https://wa.me/5531984484731?text=...` com mensagem pré-preenchida coerente com o contexto do botão.
+- Todos os links de WhatsApp apontando para `https://wa.me/5531984494731?text=...` com mensagem pré-preenchida coerente com o contexto do botão.
 - Navegação por âncoras com scroll suave.
 - Acessível: contraste adequado, `alt` nas imagens, foco visível, tags semânticas.
 - Responsivo de verdade (testar mental nos breakpoints sm/md/lg).

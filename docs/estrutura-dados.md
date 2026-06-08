@@ -69,7 +69,7 @@ unidades:                            # tabela de preços/disponibilidade
     status: reservado
 
 contato:
-  whatsapp: "+5531984484731"
+  whatsapp: "+5531984494731"
   mensagem_padrao: "Olá! Tenho interesse no Residencial Exemplo."   # texto pré-preenchido no WhatsApp
 
 seo?:
@@ -96,7 +96,7 @@ seo?:
 empresa:
   nome: "Emmanuel Serviços"
   cnpj: "04.778.491/0001-57"
-  whatsapp: "+5531984484731"
+  whatsapp: "+5531984494731"
   email?: ""
   instagram?: ""
   facebook?: ""

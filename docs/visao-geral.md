@@ -8,7 +8,7 @@
 
 **Emmanuel Serviços**
 - **CNPJ:** 04.778.491/0001-57
-- **Telefone / WhatsApp:** +55 (31) 98448-4731
+- **Telefone / WhatsApp:** +55 (31) 98449-4731
 - **Ramo:** Construção civil e serviços relacionados — constrói e vende empreendimentos (casas e prédios de apartamentos) e presta serviços para terceiros.
 
 A empresa atua em duas frentes:
