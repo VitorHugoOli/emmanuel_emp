@@ -1,0 +1,7 @@
+# Emmanuel Serviços — robots.txt
+User-agent: *
+Allow: /
+# Nota: /og/*.png precisa ser rastreável (são as imagens de og:image/JSON-LD).
+# Ficam fora do sitemap via filter em astro.config, não via Disallow.
+
+Sitemap: https://domanu.com.br/sitemap-index.xml

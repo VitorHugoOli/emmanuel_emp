@@ -1,8 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { whatsappUrl } from '../data/site';
 import { brl, precoAPartir, tipoPlural, statusInfo } from '../lib/empreendimento';
+import { img } from '../lib/images';
 
 const todos = await getCollection('empreendimentos');
 // Destaques primeiro; no lançamento há 1 empreendimento.
@@ -18,6 +20,7 @@ const status = statusInfo[d.status];
 const precoNum = precoAPartir(d.unidades);
 const preco = precoNum != null ? brl.format(precoNum) : null;
 const capa = d.galeria[0];
+const capaImg = img(capa?.src);
 const waDuvidas = whatsappUrl('Olá! Quero saber sobre os empreendimentos disponíveis.');
 ---
 
@@ -56,10 +59,12 @@ const waDuvidas = whatsappUrl('Olá! Quero saber sobre os empreendimentos dispon
           )
         }
         {
-          capa ? (
-            <img
-              src={capa.src}
+          capaImg ? (
+            <Image
+              src={capaImg}
               alt={capa.alt}
+              widths={[480, 768, 1024]}
+              sizes="(min-width: 1024px) 50vw, 100vw"
               loading="lazy"
               class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover/foto:scale-105"
             />

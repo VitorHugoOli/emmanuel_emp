@@ -93,7 +93,7 @@ unidades:
     preco: 655000
     status: disponivel
   - identificacao: '102'
-    area_m2: 63
+    area_m2: 82.72
     suite: true
     preco: null
     status: vendido

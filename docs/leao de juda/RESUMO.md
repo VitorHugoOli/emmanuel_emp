@@ -23,7 +23,7 @@
 | Unidade | Área | Suíte | Entrada (2×) | Financiamento 80% | Valor total | Status |
 |---|---|---|---|---|---|---|
 | 101 | 82,72 m² | Sim | 2× R$ 65.500 | R$ 524.000 | **R$ 655.000** | Disponível |
-| 102 | 63 m² | Sim | — | — | — (interno: R$ 678.000) | Vendido |
+| 102 | 82,72 m² | Sim | — | — | — (interno: R$ 678.000) | Vendido |
 | 201 | 63 m² | Sim | 2× R$ 52.500 | R$ 420.000 | **R$ 525.000** | Disponível |
 | 202 | 63 m² | Sim | 2× R$ 52.500 | R$ 420.000 | **R$ 525.000** | Disponível |
 | 301 | 63 m² | Sim | 2× R$ 52.000 | R$ 416.000 | **R$ 520.000** | Disponível |

@@ -1,8 +1,16 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { empresa, whatsappUrl } from '../../data/site';
+import { img } from '../../lib/images';
+import {
+  abs,
+  empreendimentoLd,
+  residenceLd,
+  breadcrumbLd,
+} from '../../lib/seo';
 import {
   brl,
   m2,
@@ -28,7 +36,21 @@ const rotulo = [tipoPlural[d.tipo] ?? d.tipo, d.localizacao.bairro, d.localizaca
 const precoNum = precoAPartir(d.unidades);
 const preco = precoNum != null ? brl.format(precoNum) : null;
 const capa = d.galeria[0];
+const capaImg = img(capa?.src);
+const logoImg = img(d.tema?.logo);
 const specs = d.caracteristicas.slice(0, 4);
+
+// --- SEO: OG dinâmico + JSON-LD derivado dos dados do empreendimento ---
+const ogImage = `/og/${e.id}.png`;
+const ogImageAbs = abs(ogImage);
+const jsonld = [
+  empreendimentoLd(d, e.id, ogImageAbs),
+  residenceLd(d, e.id),
+  breadcrumbLd([
+    { name: 'Início', url: '/' },
+    { name: d.nome, url: `/empreendimentos/${e.id}/` },
+  ]),
+];
 
 const wa = whatsappUrl(d.contato.mensagem_padrao);
 const embedUrl = mapsEmbedUrl(d.localizacao.endereco);
@@ -60,8 +82,10 @@ const themeStyle = [
 <BaseLayout
   title={d.seo?.titulo ?? `${d.nome} — Emmanuel Serviços`}
   description={d.seo?.descricao ?? d.chamada}
-  image={d.seo?.imagem}
+  image={ogImage}
+  imageAlt={d.nome}
   themeColor={primary}
+  jsonld={jsonld}
 >
   <div style={themeStyle} class="bg-[var(--ld-cream)] text-[var(--ld-ink)]">
     <!-- ============================= HEADER ============================= -->
@@ -69,8 +93,8 @@ const themeStyle = [
       <div class="mx-auto max-w-6xl px-4 sm:px-6 flex h-[68px] items-center justify-between gap-4">
         <a href="#topo" class="flex items-center gap-3 shrink-0" aria-label={`${d.nome} — início`}>
           {
-            d.tema?.logo ? (
-              <img src={d.tema.logo} alt={d.nome} class="h-10 w-auto" />
+            logoImg ? (
+              <Image src={logoImg} alt={d.nome} height={40} class="h-10 w-auto" />
             ) : (
               <span class="font-display text-[20px] font-semibold text-[var(--ld-primary)]">{d.nome}</span>
             )
@@ -101,8 +125,16 @@ const themeStyle = [
       <!-- ============================= HERO / CAPA ============================= -->
       <section class="relative min-h-[88vh] flex items-end overflow-hidden">
         {
-          capa && (
-            <img src={capa.src} alt={capa.alt} class="absolute inset-0 h-full w-full object-cover" />
+          capaImg ? (
+            <Image
+              src={capaImg}
+              alt={capa.alt}
+              widths={[768, 1280, 1920]}
+              sizes="100vw"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            capa && <img src={capa.src} alt={capa.alt} class="absolute inset-0 h-full w-full object-cover" />
           )
         }
         <div class="absolute inset-0 bg-gradient-to-t from-[var(--ld-primary)]/95 via-[var(--ld-primary)]/55 to-[var(--ld-primary)]/20"></div>
@@ -207,11 +239,13 @@ const themeStyle = [
 
               <div class="mt-10 grid sm:grid-cols-2 gap-6">
                 {
-                  d.plantas.map((p) => (
+                  d.plantas.map((p) => {
+                    const plantaImg = img(p.imagem);
+                    return (
                     <figure class="reveal group bg-white rounded-3xl overflow-hidden ring-1 ring-[var(--ld-border)]">
-                      {p.imagem && (
-                        <a href={p.imagem} target="_blank" rel="noopener" class="block relative bg-white">
-                          <img src={p.imagem} alt={`Planta ${p.nome}`} loading="lazy" class="w-full h-auto" />
+                      {plantaImg && (
+                        <a href={plantaImg.src} target="_blank" rel="noopener" class="block relative bg-white">
+                          <Image src={plantaImg} alt={`Planta ${p.nome}`} loading="lazy" class="w-full h-auto" />
                           <span class="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-[var(--ld-primary)]/85 text-white px-3 py-1.5 text-[12px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                             <Icon name="lucide:maximize-2" class="h-3.5 w-3.5" /> Ampliar
                           </span>
@@ -222,7 +256,8 @@ const themeStyle = [
                         <span class="text-[13.5px] font-medium text-[var(--ld-ink-sec)]">{m2(p.area_m2)}</span>
                       </figcaption>
                     </figure>
-                  ))
+                    );
+                  })
                 }
               </div>
             </div>

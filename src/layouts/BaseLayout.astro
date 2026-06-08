@@ -1,23 +1,40 @@
 ---
 import '../styles/global.css';
 import { empresa } from '../data/site';
+import { organizationLd, websiteLd, jsonLdGraph } from '../lib/seo';
 
 interface Props {
   title?: string;
   description?: string;
-  image?: string; // og:image (caminho absoluto a partir da raiz, ex.: /empreendimentos/.../og.jpg)
+  /** og:image — caminho a partir da raiz (ex.: /og/home.png). Default: OG da home. */
+  image?: string;
+  imageAlt?: string;
   themeColor?: string;
+  /** og:type (website | article …). Default: website. */
+  ogType?: string;
+  /** Impede indexação quando true (ex.: páginas utilitárias). */
+  noindex?: boolean;
+  /** Nós JSON-LD específicos da página (Product, BreadcrumbList…). */
+  jsonld?: object[];
 }
 
 const {
   title = 'Emmanuel Serviços — Construção e empreendimentos em Minas Gerais',
   description = 'Emmanuel Serviços: construção civil em Minas Gerais. Empreendimentos próprios, reforma, consultoria, construção, mão de obra e empréstimo de material.',
-  image,
+  image = '/og/home.png',
+  imageAlt = empresa.nome,
   themeColor = '#B5532E',
+  ogType = 'website',
+  noindex = false,
+  jsonld = [],
 } = Astro.props;
 
 const ogDescription = description;
-const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
+const ogImage = new URL(image, Astro.site).toString();
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Grafo JSON-LD: Organization + WebSite em todas as páginas + nós da página.
+const graph = jsonLdGraph(organizationLd(), websiteLd(), ...jsonld);
 
 // Favicon — símbolo "porta/portal" (Direção B): porta em areia sobre terracota.
 const favicon =
@@ -32,18 +49,32 @@ const favicon =
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content={themeColor} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     {/* Open Graph / redes sociais */}
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:site_name" content={empresa.nome} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
-    {ogImage && <meta name="twitter:card" content="summary_large_image" />}
-    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    {/* Twitter / X */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
 
     <link rel="icon" href={favicon} />
+
+    {/* Dados estruturados (Schema.org) */}
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} is:inline />
 
     {/* Google Fonts: Fraunces (display) + Inter (UI) */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
