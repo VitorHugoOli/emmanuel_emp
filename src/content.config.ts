@@ -24,6 +24,9 @@ const empreendimentos = defineCollection({
     chamada: z.string(),
     descricao: z.string(),
 
+    // Previsão de entrega (ex.: "Conclusão maio/2026 · Chaves julho/2026")
+    previsao_entrega: z.string().optional(),
+
     caracteristicas: z
       .array(
         z.object({
@@ -67,7 +70,7 @@ const empreendimentos = defineCollection({
           z.object({
             nome: z.string(),
             tipo: tipoPontoInteresse,
-            distancia: z.string(),
+            distancia: z.string().optional(),
           })
         )
         .default([]),
@@ -79,7 +82,12 @@ const empreendimentos = defineCollection({
           identificacao: z.string(),
           planta: z.string().optional(),
           area_m2: z.number(),
-          preco: z.number().nullable(),
+          suite: z.boolean().optional(),
+          // Plano de pagamento (opcional) — alimenta a tabela de vendas
+          entrada: z.number().nullable().optional(), // valor de cada parcela de entrada
+          entrada_parcelas: z.number().optional(), // qtd de parcelas de entrada
+          financiamento: z.number().nullable().optional(), // valor financiado
+          preco: z.number().nullable(), // valor total
           status: z.enum(['disponivel', 'reservado', 'vendido']),
         })
       )

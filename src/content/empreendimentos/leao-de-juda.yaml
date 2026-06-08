@@ -1,0 +1,153 @@
+nome: Residencial Leão de Judá
+tipo: apartamento
+status: em_construcao
+destaque: true
+
+chamada: Apartamentos de 3 quartos com suíte na Glória, BH — arquitetura de vanguarda
+descricao: |
+  Prédio com arquitetura de vanguarda, 100% revestido e com apenas 2 apartamentos
+  por andar — mais privacidade e exclusividade para você e sua família.
+  Apartamentos tipo de 63 m² (acima da média do mercado), com 3 quartos sendo 1 suíte,
+  cozinha americana espaçosa, porcelanato de primeira linha e bancadas em granito.
+  Coberturas com 3 quartos, 3 banheiros, 2 vagas e ambiente ao ar livre.
+
+previsao_entrega: Conclusão em maio/2026 · Entrega das chaves em julho/2026
+
+# Identidade visual própria do empreendimento (leão dourado + azul-marinho)
+tema:
+  cor_primaria: '#173A5E'
+  cor_secundaria: '#B0883E'
+  logo: /empreendimentos/leao-de-juda/logo.jpg
+
+caracteristicas:
+  - texto: 3 quartos, sendo 1 suíte
+    icone: bed-double
+  - texto: 2 banheiros
+    icone: bath
+  - texto: 63 m² privativos
+    icone: ruler
+  - texto: 1 vaga de garagem privativa
+    icone: car
+  - texto: Cozinha americana espaçosa
+    icone: cooking-pot
+  - texto: Ponto para ar-condicionado
+    icone: air-vent
+  - texto: Água individualizada
+    icone: droplets
+  - texto: Elevador para 8 pessoas
+    icone: arrow-up-down
+  - texto: Porcelanato de 1ª linha
+    icone: layout-grid
+  - texto: Apenas 2 apartamentos por andar
+    icone: building-2
+
+galeria:
+  - src: /empreendimentos/leao-de-juda/fachada.jpg
+    alt: Fachada do Residencial Leão de Judá
+
+plantas:
+  - nome: 1º Pavimento
+    area_m2: 63
+    imagem: /empreendimentos/leao-de-juda/planta-1-pavimento.jpg
+  - nome: 2º e 3º Pavimento
+    area_m2: 63
+    imagem: /empreendimentos/leao-de-juda/planta-2-3-pavimento.jpg
+  - nome: 4º Pavimento
+    area_m2: 63
+    imagem: /empreendimentos/leao-de-juda/planta-4-pavimento.jpg
+  - nome: Cobertura
+    area_m2: 126
+    imagem: /empreendimentos/leao-de-juda/planta-cobertura.jpg
+
+localizacao:
+  endereco: R. Luís Dias, 84 - Glória, Belo Horizonte - MG, 30880-070
+  bairro: Glória
+  cidade: Belo Horizonte/MG
+  lat: -19.9281
+  lng: -44.0517
+  pontos_de_interesse:
+    - nome: Supermercados Mart Minas
+      tipo: compras
+    - nome: EPA Supermercados
+      tipo: compras
+    - nome: Villefort Atacarejo
+      tipo: compras
+    - nome: Feira Minas
+      tipo: compras
+    - nome: Laboratório Hermes Pardini
+      tipo: saude
+    - nome: Fit One Academia
+      tipo: lazer
+    - nome: Região da Pampulha
+      tipo: lazer
+    - nome: Acesso ao Centro e a Contagem
+      tipo: transporte
+
+unidades:
+  - identificacao: '101'
+    area_m2: 82.72
+    suite: true
+    entrada: 64800
+    entrada_parcelas: 2
+    financiamento: 518400
+    preco: 648000
+    status: disponivel
+  - identificacao: '102'
+    area_m2: 63
+    suite: true
+    preco: null
+    status: vendido
+  - identificacao: '201'
+    area_m2: 63
+    suite: true
+    entrada: 51500
+    entrada_parcelas: 2
+    financiamento: 412000
+    preco: 515000
+    status: disponivel
+  - identificacao: '202'
+    area_m2: 63
+    suite: true
+    entrada: 51500
+    entrada_parcelas: 2
+    financiamento: 412000
+    preco: 515000
+    status: disponivel
+  - identificacao: '301'
+    area_m2: 63
+    suite: true
+    entrada: 51000
+    entrada_parcelas: 2
+    financiamento: 408000
+    preco: 510000
+    status: disponivel
+  - identificacao: '302'
+    area_m2: 63
+    suite: true
+    entrada: 51500
+    entrada_parcelas: 2
+    financiamento: 412000
+    preco: 515000
+    status: disponivel
+  - identificacao: '401'
+    area_m2: 63
+    suite: true
+    preco: null
+    status: vendido
+  - identificacao: 402 (Cobertura)
+    area_m2: 126
+    suite: true
+    entrada: 74500
+    entrada_parcelas: 2
+    financiamento: 596000
+    preco: 745000
+    status: disponivel
+
+contato:
+  whatsapp: '+5531984484731'
+  mensagem_padrao: 'Olá! Tenho interesse no Residencial Leão de Judá. Pode me enviar mais informações?'
+
+seo:
+  titulo: Residencial Leão de Judá — Apartamentos de 3 quartos na Glória, BH
+  descricao: Apartamentos de 3 quartos com suíte (63 m²) e coberturas na Glória, Belo Horizonte. Arquitetura de vanguarda, 2 apê por andar, elevador. Construção Emmanuel Serviços.
+  imagem: /empreendimentos/leao-de-juda/fachada.jpg

@@ -5,15 +5,19 @@ import { empresa } from '../data/site';
 interface Props {
   title?: string;
   description?: string;
+  image?: string; // og:image (caminho absoluto a partir da raiz, ex.: /empreendimentos/.../og.jpg)
+  themeColor?: string;
 }
 
 const {
   title = 'Emmanuel Serviços — Construção e empreendimentos em Minas Gerais',
   description = 'Emmanuel Serviços: construção civil em Minas Gerais. Empreendimentos próprios, reforma, consultoria, construção, mão de obra e empréstimo de material.',
+  image,
+  themeColor = '#B5532E',
 } = Astro.props;
 
-const ogDescription =
-  'Construímos o lugar que você vai chamar de lar. Empreendimentos próprios e serviços de obra com a confiança de quem constrói lares de verdade.';
+const ogDescription = description;
+const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
 
 // Favicon — símbolo "porta/portal" (Direção B): porta em areia sobre terracota.
 const favicon =
@@ -27,7 +31,7 @@ const favicon =
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#B5532E" />
+    <meta name="theme-color" content={themeColor} />
 
     {/* Open Graph / redes sociais */}
     <meta property="og:type" content="website" />
@@ -35,6 +39,9 @@ const favicon =
     <meta property="og:title" content={title} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:site_name" content={empresa.nome} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && <meta name="twitter:card" content="summary_large_image" />}
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <link rel="icon" href={favicon} />
 
