@@ -25,14 +25,13 @@ const doorPath =
 
 <a href={href} class="flex flex-col leading-none shrink-0" aria-label="domanu — Emmanuel Serviços, início">
   <span
-    class="font-display font-semibold inline-flex items-baseline text-[26px] tracking-[-0.01em]"
-    style={`color:${nameColor};line-height:.9`}
+    class="font-display font-semibold text-[26px] tracking-[-0.01em] whitespace-nowrap"
+    style={`color:${nameColor};line-height:1`}
     aria-hidden="true"
   >
     d<svg
       viewBox="0 0 64 64"
-      class="inline-block"
-      style={`width:.84em;height:.84em;margin:0 .015em;transform:translateY(.135em);color:${doorColor}`}
+      style={`display:inline-block;width:.84em;height:.84em;margin:0 .015em;vertical-align:-0.135em;color:${doorColor}`}
       aria-hidden="true"
     >
       <path fill="currentColor" fill-rule="evenodd" d={doorPath}></path>

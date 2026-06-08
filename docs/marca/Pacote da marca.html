@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pacote da marca — Emmanuel Serviços · domanu</title>
+<link rel="icon" href="favicon/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--terra:#B5532E;--areia:#F5EDE2;--areia2:#FBF6EE;--oliva:#6B7548;--ambar:#E0A458;--tinta:#2B2420;--muted:#6E6258;--borda:#E3D5C3;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',sans-serif;color:var(--tinta);background:#EFE6D8;-webkit-font-smoothing:antialiased;line-height:1.5;}
+  .font-display{font-family:'Fraunces',serif;font-optical-sizing:auto;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  .masthead{padding:64px 0 32px;}
+  .eyebrow{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:var(--terra);}
+  .masthead h1{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:600;letter-spacing:-.02em;line-height:1.05;font-size:44px;margin:14px 0 0;}
+  .masthead p{margin:16px 0 0;max-width:60ch;font-size:16px;color:var(--muted);}
+  .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--borda);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:500;}
+  .pill b{color:var(--terra);font-weight:700;}
+  section{padding:26px 0;}
+  .sec-head{padding-bottom:18px;margin-bottom:24px;border-bottom:1px solid var(--borda);}
+  .sec-head h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:600;letter-spacing:-.02em;font-size:27px;margin:6px 0 0;}
+  .sec-head p{font-size:14.5px;color:var(--muted);margin:6px 0 0;max-width:60ch;}
+  .grid{display:grid;gap:16px;}
+  .c2{grid-template-columns:repeat(2,1fr);}
+  .c3{grid-template-columns:repeat(3,1fr);}
+  .c4{grid-template-columns:repeat(4,1fr);}
+  .card{border:1px solid var(--borda);border-radius:16px;background:#fff;overflow:hidden;}
+  .card .stage{min-height:150px;display:grid;place-items:center;padding:26px;}
+  .card .lab{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 15px;border-top:1px solid var(--borda);font-size:11.5px;color:var(--muted);}
+  .card .lab b{color:var(--tinta);font-weight:600;}
+  .bg-areia{background:var(--areia);} .bg-tinta{background:var(--tinta);} .bg-terra{background:var(--terra);}
+  .stage img{display:block;max-width:100%;height:auto;}
+  .sym{width:76px;height:76px;}
+  .wm{width:100%;max-width:360px;}
+  .selo{width:150px;height:150px;}
+  .mono{width:120px;}
+  .favset{display:flex;align-items:flex-end;gap:22px;}
+  .favset .f{display:flex;flex-direction:column;align-items:center;gap:7px;}
+  .favset .f span{font-size:10.5px;color:var(--muted);}
+  .favset img{display:block;border-radius:6px;}
+  /* contrast mini */
+  .crow{display:grid;grid-template-columns:60px 1fr 80px;gap:14px;align-items:center;padding:12px 18px;border-top:1px solid var(--borda);font-size:13px;}
+  .crow:first-child{border-top:0;}
+  .crow .sw{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;}
+  .crow .sw img{width:30px;height:30px;}
+  .crow .r{font-family:'Fraunces',serif;font-weight:600;font-size:18px;text-align:right;}
+  .ok{color:var(--oliva);} .warn{color:#A8631F;}
+  .panel{border:1px solid var(--borda);border-radius:16px;background:#fff;overflow:hidden;}
+  .files{border:1px solid var(--borda);border-radius:16px;background:#fff;padding:22px 24px;font-size:13.5px;}
+  .files code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;background:var(--areia);padding:1px 6px;border-radius:5px;}
+  .files ul{margin:8px 0 0;padding-left:18px;} .files li{margin:5px 0;color:#463d35;}
+  .note{margin-top:18px;border:1px solid var(--borda);border-radius:16px;background:#FBF1E9;padding:18px 22px;font-size:13.5px;color:#463d35;}
+  .note b{color:var(--terra);}
+  footer{padding:44px 0 64px;color:var(--muted);font-size:13px;text-align:center;}
+  @media(max-width:860px){.c2,.c3,.c4{grid-template-columns:1fr 1fr;}.masthead h1{font-size:34px;}}
+  @media(max-width:560px){.c2,.c3,.c4{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Pacote da marca · Arquivos finais</div>
+    <h1 class="font-display">Emmanuel Serviços <span style="color:var(--terra)">·</span> domanu</h1>
+    <p>Símbolo portal, wordmark <b style="color:var(--tinta)">domanu</b>, monograma “em”, selo e favicon — em vetor (SVG) e raster (PNG), prontos para uso. Construção e empreendimentos · Minas Gerais.</p>
+    <div class="pills">
+      <span class="pill"><b>Símbolo</b> portal-porta</span>
+      <span class="pill"><b>Tipografia</b> Fraunces + Inter</span>
+      <span class="pill"><b>Cor escura</b> âmbar</span>
+      <span class="pill"><b>Selo</b> desde 2015</span>
+    </div>
+  </header>
+
+  <!-- SÍMBOLO -->
+  <section>
+    <div class="sec-head"><div class="eyebrow">Símbolo</div><h2 class="font-display">Portal · 4 colorways</h2>
+      <p>Terracota em fundo claro; em fundo escuro, âmbar ou negativo em areia. Vetor + PNG 512.</p></div>
+    <div class="grid c4">
+      <div class="card"><div class="stage bg-areia"><img class="sym" src="simbolo/portal-terracota.svg" alt="portal terracota"></div><div class="lab"><span>Terracota / areia</span><b>positivo</b></div></div>
+      <div class="card"><div class="stage bg-terra"><img class="sym" src="simbolo/portal-areia.svg" alt="portal areia"></div><div class="lab"><span>Areia / terracota</span><b>negativo</b></div></div>
+      <div class="card"><div class="stage bg-tinta"><img class="sym" src="simbolo/portal-ambar.svg" alt="portal âmbar"></div><div class="lab"><span>Âmbar / tinta</span><b>escuro</b></div></div>
+      <div class="card"><div class="stage bg-areia"><img class="sym" src="simbolo/portal-tinta.svg" alt="portal tinta"></div><div class="lab"><span>Tinta / areia</span><b>1 cor</b></div></div>
+    </div>
+  </section>
+
+  <!-- WORDMARK -->
+  <section>
+    <div class="sec-head"><div class="eyebrow">Wordmark &amp; lockups</div><h2 class="font-display">domanu</h2>
+      <p>O “o” é o portal. Lockup com descritor em caixa alta espaçada. Positivo e negativo.</p></div>
+    <div class="grid c2">
+      <div class="card"><div class="stage bg-areia"><img class="wm" src="wordmark/domanu.png" alt="wordmark domanu"></div><div class="lab"><span>Wordmark puro</span><b>sobre areia</b></div></div>
+      <div class="card"><div class="stage bg-areia"><img class="wm" src="wordmark/domanu-lockup.png" alt="lockup domanu"></div><div class="lab"><span>Lockup completo</span><b>sobre areia</b></div></div>
+    </div>
+    <div class="grid" style="margin-top:16px"><div class="card"><div class="stage bg-tinta"><img class="wm" style="max-width:420px" src="wordmark/domanu-lockup-negativo.png" alt="lockup negativo"></div><div class="lab"><span>Lockup negativo · âmbar + areia</span><b>sobre tinta</b></div></div></div>
+  </section>
+
+  <!-- MONOGRAMA + SELO -->
+  <section>
+    <div class="sec-head"><div class="eyebrow">Complementares</div><h2 class="font-display">Monograma &amp; selo</h2>
+      <p>Monograma “em” para usos compactos. Selo “desde 2015” para carimbo e brindes.</p></div>
+    <div class="grid c3">
+      <div class="card"><div class="stage bg-areia"><img class="mono" src="monograma/monograma-em.png" alt="monograma em"></div><div class="lab"><span>Monograma</span><b>em</b></div></div>
+      <div class="card"><div class="stage bg-areia"><img class="selo" src="selo/selo-2015.png" alt="selo terracota"></div><div class="lab"><span>Selo · terracota</span><b>desde 2015</b></div></div>
+      <div class="card"><div class="stage bg-tinta"><img class="selo" src="selo/selo-2015-negativo.png" alt="selo negativo"></div><div class="lab"><span>Selo · negativo</span><b>desde 2015</b></div></div>
+    </div>
+  </section>
+
+  <!-- FAVICON + CONTRASTE -->
+  <section>
+    <div class="sec-head"><div class="eyebrow">Web</div><h2 class="font-display">Favicon &amp; contraste</h2></div>
+    <div class="grid c2">
+      <div class="card"><div class="stage bg-areia"><div class="favset">
+        <div class="f"><img src="favicon/favicon-48.png" width="48" height="48" alt="48"><span>48</span></div>
+        <div class="f"><img src="favicon/favicon-32.png" width="32" height="32" alt="32"><span>32</span></div>
+        <div class="f"><img src="favicon/favicon-16.png" width="16" height="16" alt="16"><span>16</span></div>
+        <div class="f"><img src="favicon/apple-touch-icon-180.png" width="56" height="56" style="border-radius:12px" alt="180"><span>180</span></div>
+      </div></div><div class="lab"><span>favicon.svg + PNG</span><b>16 → 512 px</b></div></div>
+      <div class="panel">
+        <div class="crow"><div class="sw bg-areia"><img src="simbolo/portal-terracota.svg" alt=""></div><div>Terracota ▸ Areia</div><div class="r ok">4,3:1</div></div>
+        <div class="crow"><div class="sw bg-tinta"><img src="simbolo/portal-terracota.svg" alt=""></div><div>Terracota ▸ Tinta <span class="warn">⚠ só grande</span></div><div class="r warn">3,1:1</div></div>
+        <div class="crow"><div class="sw bg-tinta"><img src="simbolo/portal-ambar.svg" alt=""></div><div>Âmbar ▸ Tinta</div><div class="r ok">7,0:1</div></div>
+        <div class="crow"><div class="sw bg-tinta"><img src="simbolo/portal-areia.svg" alt=""></div><div>Areia ▸ Tinta</div><div class="r ok">13,1:1</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARQUIVOS -->
+  <section>
+    <div class="sec-head"><div class="eyebrow">Conteúdo</div><h2 class="font-display">Arquivos do pacote</h2></div>
+    <div class="files">
+      <ul>
+        <li><code>simbolo/</code> — portal nas 4 cores (SVG) + <code>portal-512.png</code></li>
+        <li><code>favicon/</code> — <code>favicon.svg</code> + PNG 16/32/48/180/512</li>
+        <li><code>wordmark/</code> — <code>domanu</code> + <code>domanu-lockup</code> (+ negativo) em SVG e PNG</li>
+        <li><code>monograma/</code> — <code>monograma-em</code> (SVG + PNG)</li>
+        <li><code>selo/</code> — selo “desde 2015” em 3 versões (SVG) + PNG</li>
+        <li><code>README.md</code> — cores, regras, contraste e instruções</li>
+      </ul>
+      <div class="note"><b>Fontes:</b> os SVGs de texto usam Fraunces + Inter (Google Fonts). Onde a fonte não estiver instalada, <b>converta o texto em curvas</b> no editor vetorial. Os PNGs já estão rasterizados. <b>Área de proteção:</b> respiro = altura do “d”. <b>Mínimos:</b> símbolo 16 px, wordmark 90 px.</div>
+    </div>
+  </section>
+
+  <footer>Pacote da marca — Emmanuel Serviços · domanu.com.br · Construção e empreendimentos · Minas Gerais</footer>
+</div>
+</body>
+</html>
