@@ -6,7 +6,10 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://domanu.com.br',
+  // Domínio oficial por padrão; sobrescreva no build temporário com
+  // `SITE_URL=https://domanu.pro163d.com.br npm run build`. Todas as URLs
+  // absolutas (canonical, og:image, JSON-LD, sitemap) derivam daqui.
+  site: process.env.SITE_URL ?? 'https://domanu.com.br',
   integrations: [
     icon(),
     sitemap({

@@ -19,8 +19,12 @@ import { empresa } from '../data/site';
 import { precoAPartir, tipoPlural } from './empreendimento';
 import { img } from './images';
 
-/** URL canônica de produção (espelha `site` em astro.config.mjs). */
-export const SITE = 'https://domanu.com.br';
+/**
+ * URL canônica do site — fonte única de verdade: o `site` de astro.config.mjs,
+ * exposto pelo Astro como `import.meta.env.SITE`. NUNCA hardcode o domínio aqui;
+ * assim o build temporário (SITE_URL=...) e o oficial geram URLs coerentes.
+ */
+export const SITE = (import.meta.env.SITE ?? 'https://domanu.com.br').replace(/\/$/, '');
 
 /** Converte um caminho de raiz em URL absoluta. */
 export const abs = (path: string): string => new URL(path, SITE).toString();
