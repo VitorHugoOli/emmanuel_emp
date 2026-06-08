@@ -1,0 +1,79 @@
+---
+import { Icon } from 'astro-icon/components';
+import { hero, whatsappUrl } from '../data/site';
+
+const waHero = whatsappUrl(hero.msgWhatsapp);
+const numeroLinhas = hero.destaqueNumero.texto.split('\n');
+---
+
+<section class="relative overflow-hidden">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+      <!-- Texto -->
+      <div class="reveal">
+        <span
+          class="inline-flex items-center gap-2 rounded-full bg-white/70 ring-1 ring-borda px-3.5 py-1.5 text-[13px] font-semibold text-oliva shadow-warm-sm"
+        >
+          <Icon name="lucide:hammer" class="h-4 w-4" />
+          {hero.selo}
+        </span>
+
+        <h1 class="mt-5 font-display text-[40px] leading-[1.05] sm:text-[52px] lg:text-[60px] font-semibold tracking-tight text-tinta">
+          {hero.tituloAntes}<span class="text-terracota">{hero.tituloDestaque}</span>
+        </h1>
+
+        <p class="mt-5 text-[17px] sm:text-[18px] leading-relaxed text-tinta-sec max-w-xl">
+          {hero.subtitulo}
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a
+            href="#empreendimentos"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-terracota px-6 py-3.5 text-[15px] font-semibold text-white shadow-warm hover:bg-terracota-dark transition-colors"
+          >
+            <Icon name="lucide:building-2" class="h-5 w-5" />
+            {hero.ctaPrimario}
+          </a>
+          <a
+            href={waHero}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-semibold text-tinta ring-1 ring-borda hover:bg-areia-light transition-colors"
+          >
+            <Icon name="lucide:message-circle" class="h-5 w-5 text-oliva" />
+            Falar no WhatsApp
+          </a>
+        </div>
+
+        <!-- Mini provas -->
+        <div class="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3 text-[14px] text-tinta-sec">
+          {
+            hero.miniProvas.map((p) => (
+              <span class="inline-flex items-center gap-2">
+                <Icon name={`lucide:${p.icone}`} class="h-4 w-4 text-oliva" />
+                {p.texto}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Imagem hero (placeholder) -->
+      <div class="reveal relative">
+        <div class="img-ph aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-4xl shadow-warm-lg grid place-items-center">
+          <div class="text-center px-6">
+            <Icon name="lucide:home" class="h-12 w-12 text-terracota/60 mx-auto" />
+            <p class="img-ph__label mt-3 text-[12px] text-tinta-sec/80">[ foto: fachada do empreendimento ]</p>
+          </div>
+        </div>
+        <!-- Selo flutuante -->
+        <div class="absolute -bottom-5 -left-3 sm:left-6 bg-white rounded-2xl shadow-warm px-5 py-4 ring-1 ring-borda">
+          <p class="font-display text-[26px] font-semibold text-terracota leading-none">{hero.destaqueNumero.valor}</p>
+          <p class="mt-1 text-[13px] text-tinta-sec leading-tight">
+            {numeroLinhas.map((linha, i) => (<>{i > 0 && <br />}{linha}</>))}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

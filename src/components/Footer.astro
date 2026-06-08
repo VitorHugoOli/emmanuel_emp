@@ -1,0 +1,72 @@
+---
+import { Icon } from 'astro-icon/components';
+import Wordmark from './Wordmark.astro';
+import { empresa, whatsappUrl } from '../data/site';
+
+const navLinks = [
+  { href: '#empreendimentos', label: 'Empreendimentos' },
+  { href: '#servicos', label: 'Serviços' },
+  { href: '#diferenciais', label: 'Diferenciais' },
+  { href: '#sobre', label: 'Sobre' },
+  { href: '#contato', label: 'Contato' },
+];
+
+const waFooter = whatsappUrl('Olá! Vim pelo site da Emmanuel Serviços.');
+const ano = new Date().getFullYear();
+---
+
+<footer class="bg-tinta text-areia/80">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-14">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Wordmark + descrição -->
+      <div class="lg:col-span-2 max-w-sm">
+        <Wordmark variant="dark" />
+        <p class="mt-4 text-[14.5px] leading-relaxed text-areia/65">
+          Construção civil em Minas Gerais. Empreendimentos próprios e serviços de obra com a confiança de quem constrói
+          lares de verdade.
+        </p>
+        <p class="mt-4 text-[13px] text-areia/50">CNPJ: {empresa.cnpj}</p>
+      </div>
+
+      <!-- Links -->
+      <nav aria-label="Rodapé — navegação">
+        <p class="text-[13px] font-bold uppercase tracking-wider text-areia/45">Navegação</p>
+        <ul class="mt-4 space-y-2.5 text-[14.5px]">
+          {navLinks.map((l) => <li><a href={l.href} class="hover:text-ambar transition-colors">{l.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <!-- Contato -->
+      <div>
+        <p class="text-[13px] font-bold uppercase tracking-wider text-areia/45">Contato</p>
+        <ul class="mt-4 space-y-2.5 text-[14.5px]">
+          <li>
+            <a href={waFooter} target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-ambar transition-colors">
+              <Icon name="lucide:message-circle" class="h-4 w-4" /> {empresa.whatsappDisplay.replace('+55 ', '')}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${empresa.email}`} class="inline-flex items-center gap-2 hover:text-ambar transition-colors">
+              <Icon name="lucide:mail" class="h-4 w-4" /> E-mail
+            </a>
+          </li>
+          <li>
+            <a href={`https://instagram.com/${empresa.instagram}`} target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-ambar transition-colors">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              @{empresa.instagram}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px] text-areia/50">
+      <p>© {ano} {empresa.nome}. Todos os direitos reservados.</p>
+      <p>Feito com cuidado em Minas Gerais.</p>
+    </div>
+  </div>
+</footer>

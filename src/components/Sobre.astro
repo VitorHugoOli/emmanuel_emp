@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components';
+import { sobre } from '../data/site';
+---
+
+<section id="sobre" class="bg-areia">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <!-- Foto equipe (placeholder) -->
+      <div class="reveal order-2 lg:order-1">
+        <div class="img-ph aspect-[5/4] rounded-4xl shadow-warm grid place-items-center">
+          <div class="text-center px-6">
+            <Icon name="lucide:users" class="h-11 w-11 text-terracota/55 mx-auto" />
+            <p class="img-ph__label mt-3 text-[12px] text-tinta-sec/80">[ foto: equipe / obra ]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="reveal order-1 lg:order-2">
+        <span class="text-[13px] font-bold uppercase tracking-[0.18em] text-terracota">Sobre a Emmanuel</span>
+        <h2 class="mt-2 font-display text-[32px] sm:text-[40px] font-semibold tracking-tight text-tinta">{sobre.titulo}</h2>
+        {sobre.paragrafos.map((p) => <p class="mt-4 text-[16px] leading-relaxed text-tinta-sec">{p}</p>)}
+
+        <!-- Valores -->
+        <div class="mt-7 grid sm:grid-cols-3 gap-4">
+          {
+            sobre.valores.map((v) => (
+              <div class="rounded-2xl bg-white p-4 ring-1 ring-borda/70 shadow-warm-sm">
+                <Icon name={`lucide:${v.icone}`} class="h-5 w-5 text-oliva" />
+                <p class="mt-2 font-semibold text-tinta text-[15px]">{v.titulo}</p>
+                <p class="text-[13.5px] text-tinta-sec leading-snug">{v.texto}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

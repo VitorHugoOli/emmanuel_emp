@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+/* =========================================================================
+   Tokens de tema (paleta "cozy" terracota + areia, tipografia, sombras)
+   Portados do protótipo aprovado. Tailwind v4 gera as utilities a partir
+   destes custom properties (ex.: --color-terracota -> bg-terracota,
+   text-terracota e modificadores de opacidade como bg-terracota/10).
+   ========================================================================= */
+@theme {
+  /* Cores */
+  --color-terracota: #b5532e;
+  --color-terracota-dark: #8e3f22;
+  --color-areia: #f5ede2;
+  --color-areia-light: #fbf6ee;
+  --color-oliva: #6b7548;
+  --color-ambar: #e0a458;
+  --color-tinta: #2b2420;
+  --color-tinta-sec: #6e6258;
+  --color-borda: #e3d5c3;
+
+  /* Tipografia */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+
+  /* Sombras quentes (sem tom azulado) */
+  --shadow-warm: 0 12px 30px -12px rgba(142, 63, 34, 0.2);
+  --shadow-warm-lg: 0 28px 60px -18px rgba(142, 63, 34, 0.28);
+  --shadow-warm-sm: 0 6px 16px -8px rgba(142, 63, 34, 0.18);
+
+  /* Raio extra */
+  --radius-4xl: 2rem;
+}
+
+/* =========================================================================
+   Estilos base (não-token) — também portados do protótipo.
+   Ficam no global para valer em todos os componentes Astro.
+   ========================================================================= */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px; /* compensa header fixo */
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+/* Foco visível e acessível */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-terracota-dark);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Placeholder de imagem com textura quente sutil */
+.img-ph {
+  position: relative;
+  background-color: #eadbc6;
+  background-image:
+    linear-gradient(135deg, rgba(181, 83, 46, 0.1) 0%, rgba(224, 164, 88, 0.1) 100%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(142, 63, 34, 0.05) 0px,
+      rgba(142, 63, 34, 0.05) 2px,
+      transparent 2px,
+      transparent 12px
+    );
+  overflow: hidden;
+}
+
+.img-ph__label {
+  font-family: var(--font-sans);
+  font-feature-settings: 'tnum';
+  letter-spacing: 0.02em;
+}
+
+/* Animação suave de entrada (respeita prefers-reduced-motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

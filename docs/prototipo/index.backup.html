@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emmanuel Serviços — Construção e empreendimentos em Minas Gerais</title>
+  <meta name="description" content="Emmanuel Serviços: construção civil em Minas Gerais. Empreendimentos próprios, reforma, consultoria, construção, mão de obra e empréstimo de material." />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Fraunces (display) + Inter (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            terracota: '#B5532E',
+            'terracota-dark': '#8E3F22',
+            areia: '#F5EDE2',
+            'areia-light': '#FBF6EE',
+            oliva: '#6B7548',
+            ambar: '#E0A458',
+            tinta: '#2B2420',
+            'tinta-sec': '#6E6258',
+            borda: '#E3D5C3',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'ui-serif', 'Georgia', 'serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            warm: '0 12px 30px -12px rgba(142, 63, 34, 0.20)',
+            'warm-lg': '0 28px 60px -18px rgba(142, 63, 34, 0.28)',
+            'warm-sm': '0 6px 16px -8px rgba(142, 63, 34, 0.18)',
+          },
+          borderRadius: {
+            '4xl': '2rem',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px; /* compensa header fixo */
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Fraunces', serif;
+      font-optical-sizing: auto;
+    }
+    /* Foco visível e acessível */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid #8E3F22;
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    /* Placeholder de imagem com textura quente sutil */
+    .img-ph {
+      position: relative;
+      background-color: #EADBC6;
+      background-image:
+        linear-gradient(135deg, rgba(181, 83, 46, 0.10) 0%, rgba(224, 164, 88, 0.10) 100%),
+        repeating-linear-gradient(45deg, rgba(142, 63, 34, 0.05) 0px, rgba(142, 63, 34, 0.05) 2px, transparent 2px, transparent 12px);
+      overflow: hidden;
+    }
+    .img-ph__label {
+      font-family: 'Inter', monospace;
+      font-feature-settings: 'tnum';
+      letter-spacing: 0.02em;
+    }
+    /* Animação suave de entrada */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-areia text-tinta antialiased selection:bg-terracota/20">
+
+  <!-- ============================= HEADER (fixo) ============================= -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-areia/85 backdrop-blur-md border-b border-borda/70">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex h-[72px] items-center justify-between gap-4">
+
+        <!-- Wordmark -->
+        <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="Emmanuel Serviços — início">
+          <span class="grid place-items-center h-9 w-9 rounded-xl bg-terracota/10 text-terracota">
+            <!-- ícone telhado/casa (SVG simples) -->
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 11.5 12 4l9 7.5" />
+              <path d="M5 10.5V20h14v-9.5" />
+            </svg>
+          </span>
+          <span class="leading-none">
+            <span class="block font-display text-[19px] font-600 text-tinta tracking-tight">Emmanuel</span>
+            <span class="block text-[11px] font-500 uppercase tracking-[0.22em] text-terracota -mt-0.5">Serviços</span>
+          </span>
+        </a>
+
+        <!-- Navegação desktop -->
+        <nav class="hidden lg:flex items-center gap-7 text-[15px] font-500 text-tinta-sec" aria-label="Navegação principal">
+          <a href="#empreendimentos" class="hover:text-terracota transition-colors">Empreendimentos</a>
+          <a href="#servicos" class="hover:text-terracota transition-colors">Serviços</a>
+          <a href="#diferenciais" class="hover:text-terracota transition-colors">Diferenciais</a>
+          <a href="#sobre" class="hover:text-terracota transition-colors">Sobre</a>
+          <a href="#contato" class="hover:text-terracota transition-colors">Contato</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <!-- CTA WhatsApp desktop -->
+          <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Emmanuel%20Servi%C3%A7os%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+             target="_blank" rel="noopener"
+             class="hidden sm:inline-flex items-center gap-2 rounded-full bg-terracota px-4 py-2.5 text-[14px] font-600 text-white shadow-warm-sm hover:bg-terracota-dark transition-colors">
+            <i data-lucide="message-circle" class="h-4 w-4"></i>
+            WhatsApp
+          </a>
+
+          <!-- Botão menu mobile -->
+          <button id="menuBtn" type="button"
+                  class="lg:hidden grid place-items-center h-11 w-11 rounded-xl border border-borda text-tinta hover:bg-areia-light transition-colors"
+                  aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="mobileMenu" class="lg:hidden hidden border-t border-borda/70 bg-areia">
+      <nav class="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-1 text-[16px] font-500" aria-label="Navegação mobile">
+        <a href="#empreendimentos" class="rounded-xl px-3 py-3 hover:bg-areia-light">Empreendimentos</a>
+        <a href="#servicos" class="rounded-xl px-3 py-3 hover:bg-areia-light">Serviços</a>
+        <a href="#diferenciais" class="rounded-xl px-3 py-3 hover:bg-areia-light">Diferenciais</a>
+        <a href="#sobre" class="rounded-xl px-3 py-3 hover:bg-areia-light">Sobre</a>
+        <a href="#contato" class="rounded-xl px-3 py-3 hover:bg-areia-light">Contato</a>
+        <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Emmanuel%20Servi%C3%A7os%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+           target="_blank" rel="noopener"
+           class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-terracota px-4 py-3 font-600 text-white">
+          <i data-lucide="message-circle" class="h-5 w-5"></i>
+          Falar no WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="pt-[72px]">
+
+    <!-- ============================= HERO ============================= -->
+    <section class="relative overflow-hidden">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+
+          <!-- Texto -->
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/70 ring-1 ring-borda px-3.5 py-1.5 text-[13px] font-600 text-oliva shadow-warm-sm">
+              <i data-lucide="hammer" class="h-4 w-4"></i>
+              +20 anos construindo em Minas Gerais
+            </span>
+
+            <h1 class="mt-5 font-display text-[40px] leading-[1.05] sm:text-[52px] lg:text-[60px] font-600 tracking-tight text-tinta">
+              Construímos o lugar que você vai chamar de
+              <span class="text-terracota">lar.</span>
+            </h1>
+
+            <p class="mt-5 text-[17px] sm:text-[18px] leading-relaxed text-tinta-sec max-w-xl">
+              Empreendimentos próprios, reformas e construção com a seriedade de
+              quem entende de obra — e o cuidado de quem entende de família.
+              Da fundação à chave na mão.
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#empreendimentos"
+                 class="inline-flex items-center justify-center gap-2 rounded-full bg-terracota px-6 py-3.5 text-[15px] font-600 text-white shadow-warm hover:bg-terracota-dark transition-colors">
+                <i data-lucide="building-2" class="h-5 w-5"></i>
+                Conheça nossos empreendimentos
+              </a>
+              <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20a%20Emmanuel%20Servi%C3%A7os."
+                 target="_blank" rel="noopener"
+                 class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-600 text-tinta ring-1 ring-borda hover:bg-areia-light transition-colors">
+                <i data-lucide="message-circle" class="h-5 w-5 text-oliva"></i>
+                Falar no WhatsApp
+              </a>
+            </div>
+
+            <!-- Mini provas -->
+            <div class="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3 text-[14px] text-tinta-sec">
+              <span class="inline-flex items-center gap-2"><i data-lucide="shield-check" class="h-4 w-4 text-oliva"></i> Obra com garantia</span>
+              <span class="inline-flex items-center gap-2"><i data-lucide="map-pin" class="h-4 w-4 text-oliva"></i> Minas Gerais</span>
+              <span class="inline-flex items-center gap-2"><i data-lucide="handshake" class="h-4 w-4 text-oliva"></i> Atendimento próximo</span>
+            </div>
+          </div>
+
+          <!-- Imagem hero (placeholder) -->
+          <div class="reveal relative">
+            <div class="img-ph aspect-[4/5] sm:aspect-[5/5] lg:aspect-[4/5] rounded-4xl shadow-warm-lg grid place-items-center">
+              <div class="text-center px-6">
+                <i data-lucide="home" class="h-12 w-12 text-terracota/60 mx-auto"></i>
+                <p class="img-ph__label mt-3 text-[12px] text-tinta-sec/80">[ foto: fachada do empreendimento ]</p>
+              </div>
+            </div>
+            <!-- Selo flutuante -->
+            <div class="absolute -bottom-5 -left-3 sm:left-6 bg-white rounded-2xl shadow-warm px-5 py-4 ring-1 ring-borda">
+              <p class="font-display text-[26px] font-600 text-terracota leading-none">300+</p>
+              <p class="mt-1 text-[13px] text-tinta-sec leading-tight">famílias morando<br />em obras nossas</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= EMPREENDIMENTOS ============================= -->
+    <section id="empreendimentos" class="bg-areia-light border-y border-borda/60">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div class="max-w-xl">
+            <span class="text-[13px] font-700 uppercase tracking-[0.18em] text-terracota">Empreendimentos próprios</span>
+            <h2 class="mt-2 font-display text-[32px] sm:text-[40px] font-600 tracking-tight text-tinta">Onde a próxima história começa</h2>
+            <p class="mt-3 text-[16px] text-tinta-sec">Projetos pensados para morar bem, com qualidade de construção e localização que valoriza.</p>
+          </div>
+          <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Quero%20saber%20sobre%20os%20empreendimentos%20dispon%C3%ADveis."
+             target="_blank" rel="noopener"
+             class="hidden sm:inline-flex items-center gap-2 text-[15px] font-600 text-terracota hover:text-terracota-dark transition-colors shrink-0">
+            Tirar dúvidas no WhatsApp <i data-lucide="arrow-right" class="h-4 w-4"></i>
+          </a>
+        </div>
+
+        <!-- Card destaque -->
+        <article class="reveal mt-10 grid lg:grid-cols-2 gap-0 bg-white rounded-4xl overflow-hidden shadow-warm ring-1 ring-borda/70">
+          <!-- Foto -->
+          <div class="img-ph relative min-h-[280px] lg:min-h-[460px] grid place-items-center">
+            <span class="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-ambar/95 text-tinta px-3 py-1.5 text-[12.5px] font-700 shadow-warm-sm">
+              <i data-lucide="hard-hat" class="h-3.5 w-3.5"></i> Em construção
+            </span>
+            <div class="text-center px-6">
+              <i data-lucide="building" class="h-12 w-12 text-terracota/55 mx-auto"></i>
+              <p class="img-ph__label mt-3 text-[12px] text-tinta-sec/80">[ foto: Residencial Bela Vista ]</p>
+            </div>
+          </div>
+
+          <!-- Conteúdo -->
+          <div class="p-7 sm:p-9 lg:p-10 flex flex-col">
+            <p class="text-[13px] font-600 text-oliva uppercase tracking-wide">Casas · Bairro Jardim · MG</p>
+            <h3 class="mt-1.5 font-display text-[28px] sm:text-[32px] font-600 text-tinta tracking-tight">Residencial Bela Vista</h3>
+            <p class="mt-3 text-[15.5px] leading-relaxed text-tinta-sec">
+              Casas térreas e sobrados com acabamento de qualidade, área de lazer
+              e financiamento facilitado. Pensadas para crescer junto com a sua família.
+            </p>
+
+            <!-- Características -->
+            <ul class="mt-6 grid grid-cols-2 gap-x-4 gap-y-3.5 text-[14.5px] text-tinta">
+              <li class="flex items-center gap-2.5"><i data-lucide="bed-double" class="h-[18px] w-[18px] text-terracota"></i> 2 e 3 quartos</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="ruler" class="h-[18px] w-[18px] text-terracota"></i> 64 a 98 m²</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="car" class="h-[18px] w-[18px] text-terracota"></i> Vaga coberta</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="trees" class="h-[18px] w-[18px] text-terracota"></i> Área de lazer</li>
+            </ul>
+
+            <div class="mt-7 pt-6 border-t border-borda flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div>
+                <p class="text-[13px] text-tinta-sec">A partir de</p>
+                <p class="font-display text-[28px] font-600 text-terracota leading-none">R$ 289.000</p>
+              </div>
+              <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Residencial%20Bela%20Vista.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F"
+                 target="_blank" rel="noopener"
+                 class="inline-flex items-center justify-center gap-2 rounded-full bg-terracota px-6 py-3.5 text-[15px] font-600 text-white shadow-warm-sm hover:bg-terracota-dark transition-colors">
+                Ver empreendimento <i data-lucide="arrow-right" class="h-4.5 w-4.5"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Espaço preparado para futuros cards -->
+        <div class="mt-6 grid sm:grid-cols-2 gap-6">
+          <div class="rounded-3xl border-2 border-dashed border-borda bg-white/40 p-8 grid place-items-center min-h-[140px] text-center">
+            <div>
+              <i data-lucide="plus" class="h-7 w-7 text-tinta-sec/50 mx-auto"></i>
+              <p class="mt-2 text-[14px] text-tinta-sec">Novos lançamentos em breve</p>
+            </div>
+          </div>
+          <div class="rounded-3xl border-2 border-dashed border-borda bg-white/40 p-8 grid place-items-center min-h-[140px] text-center">
+            <div>
+              <i data-lucide="bell" class="h-7 w-7 text-tinta-sec/50 mx-auto"></i>
+              <p class="mt-2 text-[14px] text-tinta-sec">Quer ser avisado? <a href="#contato" class="text-terracota font-600 underline-offset-2 hover:underline">Deixe seu contato</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= SERVIÇOS ============================= -->
+    <section id="servicos" class="bg-areia">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+        <div class="max-w-2xl">
+          <span class="text-[13px] font-700 uppercase tracking-[0.18em] text-terracota">Serviços prestados</span>
+          <h2 class="mt-2 font-display text-[32px] sm:text-[40px] font-600 tracking-tight text-tinta">Tudo o que sua obra precisa</h2>
+          <p class="mt-3 text-[16px] text-tinta-sec">Da ideia inicial à entrega, cuidamos de cada etapa com mão de obra qualificada e acompanhamento próximo.</p>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <!-- Serviço: Reforma -->
+          <div class="reveal group bg-white rounded-3xl p-7 ring-1 ring-borda/70 shadow-warm-sm hover:shadow-warm transition-shadow flex flex-col">
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-terracota/10 text-terracota"><i data-lucide="paint-roller" class="h-6 w-6"></i></span>
+            <h3 class="mt-4 font-display text-[21px] font-600 text-tinta">Reforma</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-tinta-sec flex-1">Renove ambientes com qualidade e prazo cumprido — do reparo simples à reforma completa.</p>
+            <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20Reforma." target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-600 text-terracota hover:text-terracota-dark transition-colors">Pedir orçamento <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+          </div>
+
+          <!-- Serviço: Consultoria -->
+          <div class="reveal group bg-white rounded-3xl p-7 ring-1 ring-borda/70 shadow-warm-sm hover:shadow-warm transition-shadow flex flex-col">
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-terracota/10 text-terracota"><i data-lucide="clipboard-list" class="h-6 w-6"></i></span>
+            <h3 class="mt-4 font-display text-[21px] font-600 text-tinta">Consultoria</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-tinta-sec flex-1">Orientação técnica para planejar, orçar e evitar surpresas na sua obra ou investimento.</p>
+            <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20Consultoria." target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-600 text-terracota hover:text-terracota-dark transition-colors">Pedir orçamento <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+          </div>
+
+          <!-- Serviço: Construção -->
+          <div class="reveal group bg-white rounded-3xl p-7 ring-1 ring-borda/70 shadow-warm-sm hover:shadow-warm transition-shadow flex flex-col">
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-terracota/10 text-terracota"><i data-lucide="building-2" class="h-6 w-6"></i></span>
+            <h3 class="mt-4 font-display text-[21px] font-600 text-tinta">Construção</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-tinta-sec flex-1">Construímos do zero com projeto, fundação e acabamento — sua casa do jeito que você sonhou.</p>
+            <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20Constru%C3%A7%C3%A3o." target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-600 text-terracota hover:text-terracota-dark transition-colors">Pedir orçamento <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+          </div>
+
+          <!-- Serviço: Mão de obra -->
+          <div class="reveal group bg-white rounded-3xl p-7 ring-1 ring-borda/70 shadow-warm-sm hover:shadow-warm transition-shadow flex flex-col">
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-terracota/10 text-terracota"><i data-lucide="users" class="h-6 w-6"></i></span>
+            <h3 class="mt-4 font-display text-[21px] font-600 text-tinta">Mão de obra</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-tinta-sec flex-1">Equipe qualificada e de confiança para a sua obra, com produtividade e segurança.</p>
+            <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20M%C3%A3o%20de%20obra." target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-600 text-terracota hover:text-terracota-dark transition-colors">Pedir orçamento <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+          </div>
+
+          <!-- Serviço: Empréstimo de material -->
+          <div class="reveal group bg-white rounded-3xl p-7 ring-1 ring-borda/70 shadow-warm-sm hover:shadow-warm transition-shadow flex flex-col">
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-terracota/10 text-terracota"><i data-lucide="package" class="h-6 w-6"></i></span>
+            <h3 class="mt-4 font-display text-[21px] font-600 text-tinta">Empréstimo de material</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-tinta-sec flex-1">Escoras, andaimes, formas e equipamentos disponíveis para locação durante a sua obra.</p>
+            <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20Empr%C3%A9stimo%20de%20material." target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-600 text-terracota hover:text-terracota-dark transition-colors">Pedir orçamento <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+          </div>
+
+          <!-- Card CTA geral -->
+          <div class="reveal rounded-3xl p-7 bg-oliva text-white shadow-warm flex flex-col justify-between">
+            <div>
+              <span class="grid place-items-center h-12 w-12 rounded-2xl bg-white/15"><i data-lucide="messages-square" class="h-6 w-6"></i></span>
+              <h3 class="mt-4 font-display text-[21px] font-600">Não sabe por onde começar?</h3>
+              <p class="mt-2 text-[15px] leading-relaxed text-white/85">Conte o que você precisa e a gente indica o melhor caminho — sem compromisso.</p>
+            </div>
+            <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20para%20escolher%20o%20servi%C3%A7o%20ideal." target="_blank" rel="noopener" class="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-[15px] font-600 text-oliva hover:bg-areia-light transition-colors">Falar agora <i data-lucide="message-circle" class="h-4.5 w-4.5"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= DIFERENCIAIS ============================= -->
+    <section id="diferenciais" class="bg-tinta text-areia">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+        <div class="max-w-2xl">
+          <span class="text-[13px] font-700 uppercase tracking-[0.18em] text-ambar">Por que a Emmanuel</span>
+          <h2 class="mt-2 font-display text-[32px] sm:text-[40px] font-600 tracking-tight text-areia">Confiança que se constrói com o tempo</h2>
+          <p class="mt-3 text-[16px] text-areia/70">Números que traduzem o cuidado com cada cliente e cada obra entregue.</p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+          <div class="reveal">
+            <i data-lucide="calendar-clock" class="h-7 w-7 text-ambar"></i>
+            <p class="mt-4 font-display text-[44px] sm:text-[52px] font-600 leading-none text-areia">+20</p>
+            <p class="mt-2 text-[15px] text-areia/70">anos de atuação em MG</p>
+          </div>
+          <div class="reveal">
+            <i data-lucide="key-round" class="h-7 w-7 text-ambar"></i>
+            <p class="mt-4 font-display text-[44px] sm:text-[52px] font-600 leading-none text-areia">150+</p>
+            <p class="mt-2 text-[15px] text-areia/70">obras entregues</p>
+          </div>
+          <div class="reveal">
+            <i data-lucide="heart-handshake" class="h-7 w-7 text-ambar"></i>
+            <p class="mt-4 font-display text-[44px] sm:text-[52px] font-600 leading-none text-areia">300+</p>
+            <p class="mt-2 text-[15px] text-areia/70">famílias atendidas</p>
+          </div>
+          <div class="reveal">
+            <i data-lucide="star" class="h-7 w-7 text-ambar"></i>
+            <p class="mt-4 font-display text-[44px] sm:text-[52px] font-600 leading-none text-areia">98%</p>
+            <p class="mt-2 text-[15px] text-areia/70">clientes satisfeitos</p>
+          </div>
+        </div>
+
+        <!-- Faixa de pilares -->
+        <div class="mt-12 grid sm:grid-cols-3 gap-4">
+          <div class="rounded-2xl bg-white/[0.06] ring-1 ring-white/10 p-5 flex items-start gap-3.5">
+            <i data-lucide="badge-check" class="h-5 w-5 text-ambar shrink-0 mt-0.5"></i>
+            <p class="text-[14.5px] text-areia/85"><span class="font-600 text-areia">Obra com garantia</span> e contrato claro do início ao fim.</p>
+          </div>
+          <div class="rounded-2xl bg-white/[0.06] ring-1 ring-white/10 p-5 flex items-start gap-3.5">
+            <i data-lucide="clock" class="h-5 w-5 text-ambar shrink-0 mt-0.5"></i>
+            <p class="text-[14.5px] text-areia/85"><span class="font-600 text-areia">Prazos cumpridos</span> com cronograma acompanhado de perto.</p>
+          </div>
+          <div class="rounded-2xl bg-white/[0.06] ring-1 ring-white/10 p-5 flex items-start gap-3.5">
+            <i data-lucide="phone-call" class="h-5 w-5 text-ambar shrink-0 mt-0.5"></i>
+            <p class="text-[14.5px] text-areia/85"><span class="font-600 text-areia">Atendimento direto</span> com quem realmente decide.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= FORMULÁRIO / CONTATO ============================= -->
+    <section id="contato" class="bg-areia-light border-y border-borda/60">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+        <div class="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-14 items-start">
+
+          <!-- Texto lateral -->
+          <div class="reveal">
+            <span class="text-[13px] font-700 uppercase tracking-[0.18em] text-terracota">Peça seu orçamento</span>
+            <h2 class="mt-2 font-display text-[32px] sm:text-[40px] font-600 tracking-tight text-tinta">Vamos tirar seu projeto do papel</h2>
+            <p class="mt-3 text-[16px] text-tinta-sec max-w-md">Preencha os dados e retornamos pelo WhatsApp. Rápido, sem compromisso e sem enrolação.</p>
+
+            <ul class="mt-8 space-y-4">
+              <li class="flex items-center gap-3.5">
+                <span class="grid place-items-center h-11 w-11 rounded-2xl bg-white ring-1 ring-borda text-terracota shadow-warm-sm"><i data-lucide="message-circle" class="h-5 w-5"></i></span>
+                <div>
+                  <p class="text-[13px] text-tinta-sec">WhatsApp / Telefone</p>
+                  <a href="https://wa.me/5531984484731" target="_blank" rel="noopener" class="font-600 text-tinta hover:text-terracota transition-colors">+55 (31) 98448-4731</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-3.5">
+                <span class="grid place-items-center h-11 w-11 rounded-2xl bg-white ring-1 ring-borda text-terracota shadow-warm-sm"><i data-lucide="mail" class="h-5 w-5"></i></span>
+                <div>
+                  <p class="text-[13px] text-tinta-sec">E-mail</p>
+                  <a href="/cdn-cgi/l/email-protection#b4d7dbdac0d5c0dbf4d1d9d9d5dac1d1d8c7d1c6c2ddd7dbc79ad7dbd99ad6c6" class="font-600 text-tinta hover:text-terracota transition-colors"><span class="__cf_email__" data-cfemail="fa9995948e9b8e95ba9f97979b948f9f96899f888c93999589d4999597d49888">[email&#160;protected]</span></a>
+                </div>
+              </li>
+              <li class="flex items-center gap-3.5">
+                <span class="grid place-items-center h-11 w-11 rounded-2xl bg-white ring-1 ring-borda text-terracota shadow-warm-sm"><i data-lucide="map-pin" class="h-5 w-5"></i></span>
+                <div>
+                  <p class="text-[13px] text-tinta-sec">Atendimento</p>
+                  <p class="font-600 text-tinta">Minas Gerais e região</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Formulário (visual, sem backend) -->
+          <form id="orcamentoForm" class="reveal bg-white rounded-4xl p-6 sm:p-8 ring-1 ring-borda/70 shadow-warm" novalidate>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="sm:col-span-2">
+                <label for="nome" class="block text-[14px] font-600 text-tinta mb-1.5">Nome completo</label>
+                <input id="nome" name="nome" type="text" required autocomplete="name" placeholder="Como podemos te chamar?"
+                       class="w-full rounded-2xl border border-borda bg-areia-light px-4 py-3 text-[15px] text-tinta placeholder:text-tinta-sec/60 focus:border-terracota focus:bg-white transition-colors" />
+              </div>
+              <div>
+                <label for="telefone" class="block text-[14px] font-600 text-tinta mb-1.5">Telefone / WhatsApp</label>
+                <input id="telefone" name="telefone" type="tel" required autocomplete="tel" placeholder="(31) 9 0000-0000"
+                       class="w-full rounded-2xl border border-borda bg-areia-light px-4 py-3 text-[15px] text-tinta placeholder:text-tinta-sec/60 focus:border-terracota focus:bg-white transition-colors" />
+              </div>
+              <div>
+                <label for="interesse" class="block text-[14px] font-600 text-tinta mb-1.5">Tipo de interesse</label>
+                <select id="interesse" name="interesse" required
+                        class="w-full rounded-2xl border border-borda bg-areia-light px-4 py-3 text-[15px] text-tinta focus:border-terracota focus:bg-white transition-colors appearance-none bg-[length:18px] bg-[right_1rem_center] bg-no-repeat"
+                        style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236E6258' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E&quot;);">
+                  <option value="Empreendimento">Empreendimento</option>
+                  <option value="Reforma">Reforma</option>
+                  <option value="Consultoria">Consultoria</option>
+                  <option value="Construção">Construção</option>
+                  <option value="Mão de obra">Mão de obra</option>
+                  <option value="Empréstimo de material">Empréstimo de material</option>
+                </select>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="mensagem" class="block text-[14px] font-600 text-tinta mb-1.5">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte um pouco sobre o que você precisa..."
+                          class="w-full rounded-2xl border border-borda bg-areia-light px-4 py-3 text-[15px] text-tinta placeholder:text-tinta-sec/60 focus:border-terracota focus:bg-white transition-colors resize-none"></textarea>
+              </div>
+            </div>
+
+            <button type="submit"
+                    class="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-full bg-terracota px-6 py-4 text-[16px] font-600 text-white shadow-warm hover:bg-terracota-dark transition-colors">
+              <i data-lucide="send" class="h-5 w-5"></i>
+              Enviar pedido
+            </button>
+            <p class="mt-3 text-center text-[13px] text-tinta-sec">Ao enviar, você será direcionado ao nosso WhatsApp com a mensagem pronta.</p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= SOBRE (institucional) ============================= -->
+    <section id="sobre" class="bg-areia">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+
+          <!-- Foto equipe (placeholder) -->
+          <div class="reveal order-2 lg:order-1">
+            <div class="img-ph aspect-[5/4] rounded-4xl shadow-warm grid place-items-center">
+              <div class="text-center px-6">
+                <i data-lucide="users" class="h-11 w-11 text-terracota/55 mx-auto"></i>
+                <p class="img-ph__label mt-3 text-[12px] text-tinta-sec/80">[ foto: equipe / obra ]</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto -->
+          <div class="reveal order-1 lg:order-2">
+            <span class="text-[13px] font-700 uppercase tracking-[0.18em] text-terracota">Sobre a Emmanuel</span>
+            <h2 class="mt-2 font-display text-[32px] sm:text-[40px] font-600 tracking-tight text-tinta">Há mais de 20 anos construindo lares em Minas</h2>
+            <p class="mt-4 text-[16px] leading-relaxed text-tinta-sec">
+              A Emmanuel Serviços nasceu do desejo de fazer construção de um jeito diferente:
+              com transparência, capricho e um atendimento que trata cada cliente como gente —
+              não como número. Crescemos pelo boca a boca de quem confiou na gente e indicou.
+            </p>
+            <p class="mt-3 text-[16px] leading-relaxed text-tinta-sec">
+              Hoje unimos a experiência de obra a empreendimentos próprios, sempre com o mesmo
+              compromisso: entregar um lugar que a família tenha orgulho de chamar de lar.
+            </p>
+
+            <!-- Valores -->
+            <div class="mt-7 grid sm:grid-cols-3 gap-4">
+              <div class="rounded-2xl bg-white p-4 ring-1 ring-borda/70 shadow-warm-sm">
+                <i data-lucide="gem" class="h-5 w-5 text-oliva"></i>
+                <p class="mt-2 font-600 text-tinta text-[15px]">Qualidade</p>
+                <p class="text-[13.5px] text-tinta-sec leading-snug">em cada detalhe da obra.</p>
+              </div>
+              <div class="rounded-2xl bg-white p-4 ring-1 ring-borda/70 shadow-warm-sm">
+                <i data-lucide="eye" class="h-5 w-5 text-oliva"></i>
+                <p class="mt-2 font-600 text-tinta text-[15px]">Transparência</p>
+                <p class="text-[13.5px] text-tinta-sec leading-snug">do orçamento à entrega.</p>
+              </div>
+              <div class="rounded-2xl bg-white p-4 ring-1 ring-borda/70 shadow-warm-sm">
+                <i data-lucide="home" class="h-5 w-5 text-oliva"></i>
+                <p class="mt-2 font-600 text-tinta text-[15px]">Proximidade</p>
+                <p class="text-[13.5px] text-tinta-sec leading-snug">do começo ao fim.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= RODAPÉ ============================= -->
+  <footer class="bg-tinta text-areia/80">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-14">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Wordmark + descrição -->
+        <div class="lg:col-span-2 max-w-sm">
+          <div class="flex items-center gap-2.5">
+            <span class="grid place-items-center h-9 w-9 rounded-xl bg-terracota/20 text-ambar">
+              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 11.5 12 4l9 7.5" />
+                <path d="M5 10.5V20h14v-9.5" />
+              </svg>
+            </span>
+            <span class="leading-none">
+              <span class="block font-display text-[19px] font-600 text-areia tracking-tight">Emmanuel</span>
+              <span class="block text-[11px] font-500 uppercase tracking-[0.22em] text-ambar -mt-0.5">Serviços</span>
+            </span>
+          </div>
+          <p class="mt-4 text-[14.5px] leading-relaxed text-areia/65">
+            Construção civil em Minas Gerais. Empreendimentos próprios e serviços de obra
+            com a confiança de quem constrói lares de verdade.
+          </p>
+          <p class="mt-4 text-[13px] text-areia/50">CNPJ: 04.778.491/0001-57</p>
+        </div>
+
+        <!-- Links -->
+        <nav aria-label="Rodapé — navegação">
+          <p class="text-[13px] font-700 uppercase tracking-wider text-areia/45">Navegação</p>
+          <ul class="mt-4 space-y-2.5 text-[14.5px]">
+            <li><a href="#empreendimentos" class="hover:text-ambar transition-colors">Empreendimentos</a></li>
+            <li><a href="#servicos" class="hover:text-ambar transition-colors">Serviços</a></li>
+            <li><a href="#diferenciais" class="hover:text-ambar transition-colors">Diferenciais</a></li>
+            <li><a href="#sobre" class="hover:text-ambar transition-colors">Sobre</a></li>
+            <li><a href="#contato" class="hover:text-ambar transition-colors">Contato</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contato -->
+        <div>
+          <p class="text-[13px] font-700 uppercase tracking-wider text-areia/45">Contato</p>
+          <ul class="mt-4 space-y-2.5 text-[14.5px]">
+            <li><a href="https://wa.me/5531984484731" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-ambar transition-colors"><i data-lucide="message-circle" class="h-4 w-4"></i> (31) 98448-4731</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#d2b1bdbca6b3a6bd92b7bfbfb3bca7b7bea1b7a0a4bbb1bda1fcb1bdbffcb0a0" class="inline-flex items-center gap-2 hover:text-ambar transition-colors"><i data-lucide="mail" class="h-4 w-4"></i> E-mail</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-ambar transition-colors"><i data-lucide="instagram" class="h-4 w-4"></i> @emmanuelservicos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px] text-areia/50">
+        <p>© <span id="ano">2026</span> Emmanuel Serviços. Todos os direitos reservados.</p>
+        <p>Feito com cuidado em Minas Gerais.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================= BOTÃO FLUTUANTE WHATSAPP ============================= -->
+  <a href="https://wa.me/5531984484731?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Emmanuel%20Servi%C3%A7os%20e%20gostaria%20de%20um%20atendimento."
+     target="_blank" rel="noopener"
+     class="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2.5 rounded-full bg-[#25D366] pl-4 pr-5 py-3.5 text-white font-600 shadow-warm-lg hover:bg-[#1FAF52] transition-colors"
+     aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+    <span class="hidden sm:inline text-[15px]">Fale conosco</span>
+  </a>
+
+  <!-- ============================= SCRIPTS ============================= -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Ícones Lucide
+    lucide.createIcons();
+
+    // Ano dinâmico no rodapé
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function setMenu(open) {
+      mobileMenu.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      menuBtn.innerHTML = open ? '<i data-lucide="x" class="h-6 w-6"></i>' : '<i data-lucide="menu" class="h-6 w-6"></i>';
+      lucide.createIcons();
+    }
+    menuBtn.addEventListener('click', () => {
+      setMenu(mobileMenu.classList.contains('hidden'));
+    });
+    // Fecha o menu ao clicar em um link
+    mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+
+    // Formulário -> WhatsApp (sem backend)
+    const form = document.getElementById('orcamentoForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const interesse = document.getElementById('interesse').value;
+      const mensagem = document.getElementById('mensagem').value.trim();
+
+      if (!nome || !telefone) {
+        if (!nome) document.getElementById('nome').focus();
+        else document.getElementById('telefone').focus();
+        return;
+      }
+
+      let texto = `Olá! Meu nome é ${nome}.\n`;
+      texto += `Tenho interesse em: ${interesse}.\n`;
+      texto += `Telefone: ${telefone}.`;
+      if (mensagem) texto += `\nMensagem: ${mensagem}`;
+
+      const url = `https://wa.me/5531984484731?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank', 'noopener');
+    });
+
+    // Reveal on scroll
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+</body>
+</html>

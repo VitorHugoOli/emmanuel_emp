@@ -1,0 +1,91 @@
+---
+import { Icon } from 'astro-icon/components';
+import Wordmark from './Wordmark.astro';
+import { whatsappUrl } from '../data/site';
+
+const navLinks = [
+  { href: '#empreendimentos', label: 'Empreendimentos' },
+  { href: '#servicos', label: 'Serviços' },
+  { href: '#diferenciais', label: 'Diferenciais' },
+  { href: '#sobre', label: 'Sobre' },
+  { href: '#contato', label: 'Contato' },
+];
+
+const waHeader = whatsappUrl('Olá! Vim pelo site da Emmanuel Serviços e gostaria de mais informações.');
+---
+
+<header class="fixed top-0 inset-x-0 z-50 bg-areia/85 backdrop-blur-md border-b border-borda/70">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="flex h-[72px] items-center justify-between gap-4">
+      <Wordmark variant="light" />
+
+      <!-- Navegação desktop -->
+      <nav class="hidden lg:flex items-center gap-7 text-[15px] font-medium text-tinta-sec" aria-label="Navegação principal">
+        {navLinks.map((l) => <a href={l.href} class="hover:text-terracota transition-colors">{l.label}</a>)}
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <!-- CTA WhatsApp desktop -->
+        <a
+          href={waHeader}
+          target="_blank"
+          rel="noopener"
+          class="hidden sm:inline-flex items-center gap-2 rounded-full bg-terracota px-4 py-2.5 text-[14px] font-semibold text-white shadow-warm-sm hover:bg-terracota-dark transition-colors"
+        >
+          <Icon name="lucide:message-circle" class="h-4 w-4" />
+          WhatsApp
+        </a>
+
+        <!-- Botão menu mobile -->
+        <button
+          id="menuBtn"
+          type="button"
+          class="lg:hidden grid place-items-center h-11 w-11 rounded-xl border border-borda text-tinta hover:bg-areia-light transition-colors"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <Icon name="lucide:menu" class="h-6 w-6" data-menu-open />
+          <Icon name="lucide:x" class="h-6 w-6 hidden" data-menu-close />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-borda/70 bg-areia">
+    <nav class="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-1 text-[16px] font-medium" aria-label="Navegação mobile">
+      {navLinks.map((l) => <a href={l.href} class="rounded-xl px-3 py-3 hover:bg-areia-light">{l.label}</a>)}
+      <a
+        href={waHeader}
+        target="_blank"
+        rel="noopener"
+        class="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-terracota px-4 py-3 font-semibold text-white"
+      >
+        <Icon name="lucide:message-circle" class="h-5 w-5" />
+        Falar no WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = menuBtn?.querySelector('[data-menu-open]');
+  const iconClose = menuBtn?.querySelector('[data-menu-close]');
+
+  function setMenu(open: boolean) {
+    if (!menuBtn || !mobileMenu) return;
+    mobileMenu.classList.toggle('hidden', !open);
+    iconOpen?.classList.toggle('hidden', open);
+    iconClose?.classList.toggle('hidden', !open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  }
+
+  menuBtn?.addEventListener('click', () => {
+    setMenu(mobileMenu?.classList.contains('hidden') ?? false);
+  });
+  mobileMenu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+</script>

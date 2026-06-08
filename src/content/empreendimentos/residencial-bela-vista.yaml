@@ -1,0 +1,47 @@
+nome: Residencial Bela Vista
+tipo: casa
+status: em_construcao
+destaque: true
+
+chamada: Casas de 2 e 3 quartos com lazer no Bairro Jardim
+descricao: |
+  Casas térreas e sobrados com acabamento de qualidade, área de lazer
+  e financiamento facilitado. Pensadas para crescer junto com a sua família.
+
+caracteristicas:
+  - texto: 2 e 3 quartos
+    icone: bed-double
+  - texto: 64 a 98 m²
+    icone: ruler
+  - texto: Vaga coberta
+    icone: car
+  - texto: Área de lazer
+    icone: trees
+
+localizacao:
+  endereco: Bairro Jardim - Cidade/MG
+  bairro: Bairro Jardim
+  cidade: MG
+  pontos_de_interesse:
+    - nome: Escola Municipal
+      tipo: educacao
+      distancia: 500 m
+    - nome: Supermercado
+      tipo: compras
+      distancia: 1,2 km
+
+unidades:
+  - identificacao: Casa 01
+    planta: Térrea 2 quartos
+    area_m2: 64
+    preco: 289000
+    status: disponivel
+  - identificacao: Casa 02
+    planta: Sobrado 3 quartos
+    area_m2: 98
+    preco: 360000
+    status: disponivel
+
+contato:
+  whatsapp: '+5531984484731'
+  mensagem_padrao: 'Olá! Tenho interesse no Residencial Bela Vista. Pode me enviar mais informações?'

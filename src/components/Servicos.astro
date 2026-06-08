@@ -1,0 +1,63 @@
+---
+import { Icon } from 'astro-icon/components';
+import { servicos, whatsappUrl } from '../data/site';
+
+const waAjuda = whatsappUrl('Olá! Preciso de ajuda para escolher o serviço ideal.');
+---
+
+<section id="servicos" class="bg-areia">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+    <div class="max-w-2xl">
+      <span class="text-[13px] font-bold uppercase tracking-[0.18em] text-terracota">Serviços prestados</span>
+      <h2 class="mt-2 font-display text-[32px] sm:text-[40px] font-semibold tracking-tight text-tinta">
+        Tudo o que sua obra precisa
+      </h2>
+      <p class="mt-3 text-[16px] text-tinta-sec">
+        Da ideia inicial à entrega, cuidamos de cada etapa com mão de obra qualificada e acompanhamento próximo.
+      </p>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {
+        servicos.map((s) => (
+          <div class="reveal group bg-white rounded-3xl p-7 ring-1 ring-borda/70 shadow-warm-sm hover:shadow-warm transition-shadow flex flex-col">
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-terracota/10 text-terracota">
+              <Icon name={`lucide:${s.icone}`} class="h-6 w-6" />
+            </span>
+            <h3 class="mt-4 font-display text-[21px] font-semibold text-tinta">{s.nome}</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-tinta-sec flex-1">{s.descricao}</p>
+            <a
+              href={whatsappUrl(`Olá! Quero um orçamento de ${s.nome}.`)}
+              target="_blank"
+              rel="noopener"
+              class="mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-terracota hover:text-terracota-dark transition-colors"
+            >
+              Pedir orçamento <Icon name="lucide:arrow-right" class="h-4 w-4" />
+            </a>
+          </div>
+        ))
+      }
+
+      <!-- Card CTA geral -->
+      <div class="reveal rounded-3xl p-7 bg-oliva text-white shadow-warm flex flex-col justify-between">
+        <div>
+          <span class="grid place-items-center h-12 w-12 rounded-2xl bg-white/15">
+            <Icon name="lucide:messages-square" class="h-6 w-6" />
+          </span>
+          <h3 class="mt-4 font-display text-[21px] font-semibold">Não sabe por onde começar?</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-white/85">
+            Conte o que você precisa e a gente indica o melhor caminho — sem compromisso.
+          </p>
+        </div>
+        <a
+          href={waAjuda}
+          target="_blank"
+          rel="noopener"
+          class="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-[15px] font-semibold text-oliva hover:bg-areia-light transition-colors"
+        >
+          Falar agora <Icon name="lucide:message-circle" class="h-[18px] w-[18px]" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

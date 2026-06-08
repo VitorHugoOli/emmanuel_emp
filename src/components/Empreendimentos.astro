@@ -1,0 +1,132 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+import { whatsappUrl } from '../data/site';
+
+const todos = await getCollection('empreendimentos');
+// Destaques primeiro; no lançamento há 1 empreendimento.
+const destaques = todos.filter((e) => e.data.destaque);
+const principal = destaques[0] ?? todos[0];
+
+const tipoPlural: Record<string, string> = { casa: 'Casas', apartamento: 'Apartamentos' };
+const statusInfo: Record<string, { label: string; icone: string }> = {
+  lancamento: { label: 'Lançamento', icone: 'sparkles' },
+  em_construcao: { label: 'Em construção', icone: 'hard-hat' },
+  entregue: { label: 'Pronto para morar', icone: 'key-round' },
+};
+
+const brl = new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL',
+  maximumFractionDigits: 0,
+});
+
+function precoAPartir(unidades: { preco: number | null }[]): string | null {
+  const precos = unidades.map((u) => u.preco).filter((p): p is number => p != null);
+  return precos.length ? brl.format(Math.min(...precos)) : null;
+}
+
+const d = principal.data;
+const rotulo = [tipoPlural[d.tipo] ?? d.tipo, d.localizacao.bairro, d.localizacao.cidade]
+  .filter(Boolean)
+  .join(' · ');
+const status = statusInfo[d.status];
+const preco = precoAPartir(d.unidades);
+const waPrincipal = whatsappUrl(d.contato.mensagem_padrao);
+const waDuvidas = whatsappUrl('Olá! Quero saber sobre os empreendimentos disponíveis.');
+---
+
+<section id="empreendimentos" class="bg-areia-light border-y border-borda/60">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div class="max-w-xl">
+        <span class="text-[13px] font-bold uppercase tracking-[0.18em] text-terracota">Empreendimentos próprios</span>
+        <h2 class="mt-2 font-display text-[32px] sm:text-[40px] font-semibold tracking-tight text-tinta">
+          Onde a próxima história começa
+        </h2>
+        <p class="mt-3 text-[16px] text-tinta-sec">
+          Projetos pensados para morar bem, com qualidade de construção e localização que valoriza.
+        </p>
+      </div>
+      <a
+        href={waDuvidas}
+        target="_blank"
+        rel="noopener"
+        class="hidden sm:inline-flex items-center gap-2 text-[15px] font-semibold text-terracota hover:text-terracota-dark transition-colors shrink-0"
+      >
+        Tirar dúvidas no WhatsApp <Icon name="lucide:arrow-right" class="h-4 w-4" />
+      </a>
+    </div>
+
+    <!-- Card destaque -->
+    <article class="reveal mt-10 grid lg:grid-cols-2 gap-0 bg-white rounded-4xl overflow-hidden shadow-warm ring-1 ring-borda/70">
+      <!-- Foto -->
+      <div class="img-ph relative min-h-[280px] lg:min-h-[460px] grid place-items-center">
+        {
+          status && (
+            <span class="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-ambar/95 text-tinta px-3 py-1.5 text-[12.5px] font-bold shadow-warm-sm">
+              <Icon name={`lucide:${status.icone}`} class="h-3.5 w-3.5" />
+              {status.label}
+            </span>
+          )
+        }
+        <div class="text-center px-6">
+          <Icon name="lucide:building" class="h-12 w-12 text-terracota/55 mx-auto" />
+          <p class="img-ph__label mt-3 text-[12px] text-tinta-sec/80">[ foto: {d.nome} ]</p>
+        </div>
+      </div>
+
+      <!-- Conteúdo -->
+      <div class="p-7 sm:p-9 lg:p-10 flex flex-col">
+        <p class="text-[13px] font-semibold text-oliva uppercase tracking-wide">{rotulo}</p>
+        <h3 class="mt-1.5 font-display text-[28px] sm:text-[32px] font-semibold text-tinta tracking-tight">{d.nome}</h3>
+        <p class="mt-3 text-[15.5px] leading-relaxed text-tinta-sec">{d.descricao}</p>
+
+        <!-- Características -->
+        <ul class="mt-6 grid grid-cols-2 gap-x-4 gap-y-3.5 text-[14.5px] text-tinta">
+          {
+            d.caracteristicas.map((c) => (
+              <li class="flex items-center gap-2.5">
+                <Icon name={`lucide:${c.icone ?? 'check'}`} class="h-[18px] w-[18px] text-terracota" />
+                {c.texto}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-7 pt-6 border-t border-borda flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <p class="text-[13px] text-tinta-sec">{preco ? 'A partir de' : 'Valores'}</p>
+            <p class="font-display text-[28px] font-semibold text-terracota leading-none">{preco ?? 'Sob consulta'}</p>
+          </div>
+          <a
+            href={waPrincipal}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-terracota px-6 py-3.5 text-[15px] font-semibold text-white shadow-warm-sm hover:bg-terracota-dark transition-colors"
+          >
+            Ver empreendimento <Icon name="lucide:arrow-right" class="h-[18px] w-[18px]" />
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Espaço preparado para futuros cards -->
+    <div class="mt-6 grid sm:grid-cols-2 gap-6">
+      <div class="rounded-3xl border-2 border-dashed border-borda bg-white/40 p-8 grid place-items-center min-h-[140px] text-center">
+        <div>
+          <Icon name="lucide:plus" class="h-7 w-7 text-tinta-sec/50 mx-auto" />
+          <p class="mt-2 text-[14px] text-tinta-sec">Novos lançamentos em breve</p>
+        </div>
+      </div>
+      <div class="rounded-3xl border-2 border-dashed border-borda bg-white/40 p-8 grid place-items-center min-h-[140px] text-center">
+        <div>
+          <Icon name="lucide:bell" class="h-7 w-7 text-tinta-sec/50 mx-auto" />
+          <p class="mt-2 text-[14px] text-tinta-sec">
+            Quer ser avisado? <a href="#contato" class="text-terracota font-semibold underline-offset-2 hover:underline">Deixe seu contato</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

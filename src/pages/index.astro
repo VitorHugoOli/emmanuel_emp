@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Empreendimentos from '../components/Empreendimentos.astro';
+import Servicos from '../components/Servicos.astro';
+import Diferenciais from '../components/Diferenciais.astro';
+import Formulario from '../components/Formulario.astro';
+import Sobre from '../components/Sobre.astro';
+import Footer from '../components/Footer.astro';
+import WhatsappFloat from '../components/WhatsappFloat.astro';
+---
+
+<BaseLayout>
+  <Header />
+  <main id="top" class="pt-[72px]">
+    <Hero />
+    <Empreendimentos />
+    <Servicos />
+    <Diferenciais />
+    <Formulario />
+    <Sobre />
+  </main>
+  <Footer />
+  <WhatsappFloat />
+</BaseLayout>
