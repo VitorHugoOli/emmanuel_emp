@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Folha de marca — Emmanuel Serviços × domanu</title>
+<meta name="description" content="Conceitos de logo para Emmanuel Serviços (domanu) — construção civil em Minas Gerais." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --terra:#B5532E;
+    --terra-dark:#8E3F22;
+    --areia:#F5EDE2;
+    --areia-2:#FBF6EE;
+    --oliva:#6B7548;
+    --ambar:#E0A458;
+    --tinta:#2B2420;
+    --muted:#6E6258;
+    --borda:#E3D5C3;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--tinta);
+    background:#EFE6D8;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  .font-display{font-family:'Fraunces',Georgia,serif;font-optical-sizing:auto;}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{padding:72px 0 40px;}
+  .eyebrow{
+    font-size:12.5px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.2em;color:var(--terra);
+  }
+  .masthead h1{
+    font-family:'Fraunces',serif;font-optical-sizing:auto;
+    font-weight:600;letter-spacing:-.02em;line-height:1.04;
+    font-size:46px;margin:14px 0 0;max-width:18ch;
+  }
+  .masthead p{
+    margin:18px 0 0;max-width:60ch;font-size:16.5px;color:var(--muted);
+  }
+  .legal-row{
+    display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:24px;
+  }
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;border:1px solid var(--borda);border-radius:999px;
+    padding:7px 14px;font-size:13px;color:var(--tinta);font-weight:500;
+  }
+  .pill b{color:var(--terra);font-weight:700;}
+
+  /* ---------- Section ---------- */
+  section{padding:30px 0;}
+  .sec-head{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    gap:24px;flex-wrap:wrap;
+    padding-bottom:22px;margin-bottom:28px;border-bottom:1px solid var(--borda);
+  }
+  .sec-head h2{
+    font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:600;
+    letter-spacing:-.02em;font-size:30px;margin:8px 0 0;
+  }
+  .sec-head .lead{font-size:15.5px;color:var(--muted);margin:6px 0 0;max-width:54ch;}
+  .sec-head .num{
+    font-family:'Fraunces',serif;font-weight:600;font-size:15px;color:var(--terra);
+    border:1px solid var(--borda);background:#fff;border-radius:999px;padding:6px 14px;
+    white-space:nowrap;
+  }
+
+  /* ---------- Palette ---------- */
+  .palette{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+  .swatch{border:1px solid var(--borda);border-radius:14px;overflow:hidden;background:#fff;}
+  .swatch .chip{height:72px;}
+  .swatch .meta{padding:10px 12px;}
+  .swatch .nm{font-size:13.5px;font-weight:600;}
+  .swatch .hx{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.02em;}
+  .swatch .role{font-size:11.5px;color:var(--muted);margin-top:2px;}
+
+  .type-specimen{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:18px;margin-top:18px;
+  }
+  .spec-card{border:1px solid var(--borda);border-radius:16px;background:#fff;padding:24px 26px;}
+  .spec-card .tag{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);}
+  .spec-card .big{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:600;font-size:46px;line-height:1.05;letter-spacing:-.02em;margin:10px 0 0;}
+  .spec-card .big.sans{font-family:'Inter',sans-serif;font-weight:600;}
+  .spec-card .scale{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
+  .spec-card .scale span{font-size:12px;color:var(--muted);border:1px solid var(--borda);border-radius:999px;padding:4px 10px;}
+
+  /* ---------- Lockup grid ---------- */
+  .grid{display:grid;gap:18px;}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr);}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr);}
+
+  .card{
+    border:1px solid var(--borda);border-radius:16px;background:#fff;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .card .label{
+    display:flex;align-items:center;gap:8px;justify-content:space-between;
+    padding:12px 16px;border-bottom:1px solid var(--borda);
+    font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);
+  }
+  .card .label .k{color:var(--terra);}
+  .stage{
+    flex:1;display:grid;place-items:center;padding:40px 28px;min-height:190px;
+    background:var(--bg);
+  }
+  .surface-sand{--bg:var(--areia);--fg:var(--tinta);--sub:var(--muted);--accent:var(--terra);--symbol:var(--terra);}
+  .surface-dark{--bg:var(--tinta);--fg:var(--areia);--sub:#C9BBA9;--accent:var(--ambar);--symbol:var(--ambar);}
+  .surface-mono-sand{--bg:var(--areia);--fg:var(--tinta);--sub:var(--tinta);--accent:var(--tinta);--symbol:var(--tinta);}
+  .surface-mono-dark{--bg:var(--tinta);--fg:var(--areia);--sub:var(--areia);--accent:var(--areia);--symbol:var(--areia);}
+
+  /* ---------- Lockup composition ---------- */
+  .sym{color:var(--symbol);display:block;}
+
+  .lk-h{display:flex;align-items:center;gap:18px;}
+  .lk-v{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;}
+
+  .wm{line-height:1;}
+  .wm .name{
+    font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:600;
+    letter-spacing:-.015em;color:var(--fg);font-size:30px;display:block;
+  }
+  .wm .sub{
+    font-family:'Inter',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.34em;font-size:11px;color:var(--accent);
+    margin-top:7px;display:block;
+  }
+  .lk-v .wm .sub{letter-spacing:.34em;}
+  .wm .tag{
+    font-family:'Inter',sans-serif;font-weight:500;font-size:10.5px;
+    letter-spacing:.04em;color:var(--sub);margin-top:8px;display:block;
+  }
+  .wm .micro{
+    font-family:'Inter',sans-serif;font-weight:600;font-size:9.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--sub);opacity:.85;
+    margin-top:9px;display:block;
+  }
+  .divider-v{width:1px;align-self:stretch;background:var(--fg);opacity:.16;}
+
+  /* domanu wordmark */
+  .domanu{
+    font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:600;
+    letter-spacing:-.01em;color:var(--fg);font-size:42px;line-height:.9;
+    display:inline-flex;align-items:baseline;
+  }
+  .domanu .door-o{
+    width:.84em;height:.84em;margin:0 .015em;color:var(--symbol);
+    transform:translateY(.135em);
+  }
+  .desc{
+    font-family:'Inter',sans-serif;color:var(--fg);
+  }
+  .desc .l1{font-weight:600;font-size:13px;letter-spacing:.01em;display:block;}
+  .desc .l2{font-weight:500;font-size:11px;letter-spacing:.04em;color:var(--sub);display:block;margin-top:3px;}
+
+  /* isolated symbol tile */
+  .tile{
+    width:120px;height:120px;border-radius:26px;display:grid;place-items:center;
+    background:var(--areia);
+  }
+  .tile.dark{background:var(--tinta);}
+  .tile.terra{background:var(--terra);}
+
+  /* favicon previews */
+  .fav-row{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+  .fav{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .fav .px{font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .fav .box{border:1px solid var(--borda);border-radius:8px;display:grid;place-items:center;background:#fff;}
+  .fav .box.onterra{background:var(--terra);border-color:transparent;}
+  .fav .box.ondark{background:var(--tinta);border-color:transparent;}
+
+  /* ---------- Strip ---------- */
+  .strip{
+    border:1px solid var(--borda);border-radius:18px;background:#fff;
+    padding:26px 28px;display:grid;grid-template-columns:1fr 1fr;gap:28px;
+  }
+  .strip h3{font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin:0 0 4px;}
+  .strip .cap{font-size:12.5px;color:var(--muted);margin:0 0 18px;}
+
+  /* ---------- Rationale ---------- */
+  .rationale{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .note{border:1px solid var(--borda);border-radius:16px;background:#fff;padding:24px 26px;}
+  .note h3{font-family:'Fraunces',serif;font-weight:600;font-size:20px;margin:0 0 2px;letter-spacing:-.01em;}
+  .note .role{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--terra);}
+  .note p{font-size:14.5px;color:#463d35;margin:12px 0 0;}
+  .note ul{margin:12px 0 0;padding-left:18px;}
+  .note li{font-size:14px;color:#463d35;margin:6px 0;}
+  .reco{
+    grid-column:1 / -1;border:1px solid var(--terra);
+    background:linear-gradient(180deg,#fff, #FBF1E9);
+    border-radius:16px;padding:26px 28px;
+  }
+  .reco .role{color:var(--terra);}
+  .reco h3{font-size:22px;}
+  .reco .star{color:var(--terra);}
+
+  footer{padding:48px 0 70px;color:var(--muted);font-size:13px;text-align:center;}
+
+  /* ---------- v2 · decisions banner ---------- */
+  .decision{
+    margin-top:26px;border:1px solid var(--terra);border-radius:16px;
+    background:linear-gradient(180deg,#fff,#FBF1E9);
+    padding:18px 22px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;
+  }
+  .decision .d-lead{font-family:'Fraunces',serif;font-weight:600;font-size:15px;color:var(--terra);display:flex;align-items:center;gap:10px;white-space:nowrap;}
+  .decision .d-lead svg{width:30px;height:30px;color:var(--terra);}
+  .decision .d-item{font-size:13px;color:#463d35;}
+  .decision .d-item b{color:var(--tinta);}
+
+  /* ---------- v2 · monogram ---------- */
+  .mono-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .mono-tile{border:1px solid var(--borda);border-radius:16px;overflow:hidden;background:#fff;}
+  .mono-tile .stage2{aspect-ratio:1.5/1;display:grid;place-items:center;background:var(--terra);}
+  .mono-glyph{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:600;color:var(--areia);line-height:1;}
+  .mono-tile .cap2{padding:13px 16px;border-top:1px solid var(--borda);}
+  .mono-tile .cap2 b{font-size:13.5px;}
+  .mono-tile .cap2 span{display:block;font-size:12px;color:var(--muted);margin-top:2px;}
+  .lig{display:inline-flex;align-items:baseline;}
+  .lig .m{margin-left:-.09em;}
+
+  /* ---------- v2 · high contrast ---------- */
+  .hc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .hc{border:1px solid var(--borda);border-radius:16px;overflow:hidden;}
+  .hc .panel{min-height:188px;display:grid;place-items:center;padding:30px;}
+  .hc .cap2{padding:11px 15px;font-size:12px;color:var(--muted);background:#fff;border-top:1px solid var(--borda);display:flex;justify-content:space-between;align-items:center;}
+  .hc .cap2 b{color:var(--tinta);}
+  .guide{margin-top:18px;border:1px solid var(--borda);border-radius:16px;background:#fff;padding:22px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .guide h4{font-family:'Fraunces',serif;font-weight:600;font-size:15px;margin:0 0 5px;}
+  .guide p{font-size:13px;color:#463d35;margin:0;line-height:1.45;}
+
+  /* ---------- v2 · seal ---------- */
+  .seal-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .seal-card{border:1px solid var(--borda);border-radius:16px;overflow:hidden;background:#fff;}
+  .seal-stage{min-height:248px;display:grid;place-items:center;padding:24px;}
+  .seal{width:190px;height:190px;border-radius:50%;border:2.5px solid currentColor;display:grid;place-items:center;position:relative;}
+  .seal::before{content:"";position:absolute;inset:11px;border-radius:50%;border:1px solid currentColor;opacity:.55;}
+  .seal .in{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;z-index:1;padding:0 26px;}
+  .seal .psym{width:26px;height:26px;margin-bottom:1px;}
+  .seal .org{font-family:'Inter',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;}
+  .seal .div2{width:30px;height:1px;background:currentColor;opacity:.5;margin:2px 0;}
+  .seal .yr{font-family:'Fraunces',serif;font-weight:600;font-size:25px;letter-spacing:.01em;line-height:1;}
+  .seal .ml{font-family:'Inter',sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.85;}
+  .seal .star4{position:absolute;left:50%;width:6px;height:6px;background:currentColor;transform:translateX(-50%) rotate(45deg);border-radius:1px;}
+  .seal .star4.t{top:14px;}
+  .seal .star4.b{bottom:14px;}
+
+  /* ---------- v2 · contrast ---------- */
+  .contrast{border:1px solid var(--borda);border-radius:18px;background:#fff;overflow:hidden;}
+  .crow{display:grid;grid-template-columns:84px 1.2fr 96px 1.3fr;gap:18px;align-items:center;padding:15px 22px;border-top:1px solid var(--borda);}
+  .crow:first-child{border-top:0;}
+  .cs{width:64px;height:64px;border-radius:12px;display:grid;place-items:center;}
+  .clabel{font-size:13.5px;color:var(--tinta);font-weight:600;}
+  .clabel span{display:block;font-weight:400;color:var(--muted);font-size:12px;margin-top:2px;}
+  .cratio{font-family:'Fraunces',serif;font-weight:600;font-size:24px;text-align:right;}
+  .cverdict{font-size:12.5px;color:#463d35;}
+  .cverdict b{display:block;font-size:13.5px;margin-bottom:1px;}
+  .cpass{color:var(--oliva);}
+  .cwarn{color:#A8631F;}
+  .crule{padding:18px 22px;background:#FBF1E9;border-top:1px solid var(--borda);font-size:13.5px;color:#463d35;line-height:1.5;}
+  .crule b{color:var(--terra);}
+
+  @media (max-width:900px){
+    .palette{grid-template-columns:repeat(3,1fr);}
+    .type-specimen,.grid.cols-2,.grid.cols-3,.rationale,.strip,
+    .mono-grid,.hc-grid,.seal-row,.guide{grid-template-columns:1fr;}
+    .masthead h1{font-size:36px;}
+    .crow{grid-template-columns:60px 1fr;gap:12px;}
+    .cratio{text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SYMBOL DEFINITIONS ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Direction A — casa / telhado / lar com porta -->
+    <symbol id="mark-house" viewBox="0 0 64 64">
+      <path fill="currentColor" stroke="currentColor" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd"
+        d="M13 54 L13 30 L32 13.5 L51 30 L51 54 Z
+           M26.5 54 L26.5 41 Q26.5 35.6 32 35.6 Q37.5 35.6 37.5 41 L37.5 54 Z" />
+    </symbol>
+    <!-- Direction B — porta / o / portal acolhedor (moldura + porta em arco) -->
+    <symbol id="mark-door" viewBox="0 0 64 64">
+      <path fill="currentColor" fill-rule="evenodd"
+        d="M20 6 H44 Q58 6 58 20 V44 Q58 58 44 58 H20 Q6 58 6 44 V20 Q6 6 20 6 Z
+           M24 50 V33 Q24 22 32 22 Q40 22 40 33 V50 Z" />
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <div class="eyebrow">Folha de marca · Identidade visual</div>
+    <h1 class="font-display">Emmanuel Serviços <span style="color:var(--terra)">×</span> domanu</h1>
+    <p>Dois nomes que conversam: o oficial dá o peso institucional e a tradição; <b style="color:var(--tinta)">domanu</b> (domus + Manu) carrega o conceito de <em>casa / lar</em>. <b style="color:var(--tinta)">Símbolo definido: o portal-porta (Direção B)</b> — acolhedor, geométrico, com calor humano.</p>
+    <div class="legal-row">
+      <span class="pill"><b>Oficial (CNPJ)</b> Emmanuel Serviços</span>
+      <span class="pill"><b>Marca curta</b> domanu.com.br</span>
+      <span class="pill"><b>Tipografia</b> Fraunces + Inter</span>
+      <span class="pill"><b>Apoio</b> Construção e empreendimentos · Minas Gerais</span>
+    </div>
+
+    <div class="decision">
+      <span class="d-lead">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark-door"/></svg>
+        Decisões desta rodada
+      </span>
+      <span class="d-item"><b>Símbolo:</b> portal-porta (B)</span>
+      <span class="d-item"><b>domanu:</b> sempre em minúscula</span>
+      <span class="d-item"><b>Monograma E+M:</b> em exploração</span>
+      <span class="d-item"><b>Selo:</b> desde 2015</span>
+      <span class="d-item"><b>Cor no escuro:</b> âmbar (contraste validado)</span>
+    </div>
+  </header>
+
+  <!-- ============ FOUNDATIONS ============ -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Fundações</div>
+        <h2 class="font-display">Cor &amp; tipografia</h2>
+        <p class="lead">A mesma paleta quente do site — terracota como protagonista, areia como respiro, oliva e âmbar como apoios.</p>
+      </div>
+    </div>
+
+    <div class="palette">
+      <div class="swatch"><div class="chip" style="background:#B5532E"></div><div class="meta"><div class="nm">Terracota</div><div class="hx">#B5532E</div><div class="role">Marca / símbolo</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#8E3F22"></div><div class="meta"><div class="nm">Terracota esc.</div><div class="hx">#8E3F22</div><div class="role">Profundidade</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#F5EDE2"></div><div class="meta"><div class="nm">Areia</div><div class="hx">#F5EDE2</div><div class="role">Fundo claro</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#6B7548"></div><div class="meta"><div class="nm">Oliva</div><div class="hx">#6B7548</div><div class="role">Apoio natural</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#E0A458"></div><div class="meta"><div class="nm">Âmbar</div><div class="hx">#E0A458</div><div class="role">Marca s/ fundo escuro</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#2B2420"></div><div class="meta"><div class="nm">Tinta</div><div class="hx">#2B2420</div><div class="role">Texto / fundo escuro</div></div></div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="spec-card">
+        <div class="tag">Wordmark · Fraunces</div>
+        <div class="big">Emmanuel</div>
+        <div class="scale"><span>Soft serif</span><span>opsz 9–144</span><span>Peso 600</span><span>Calor + tradição</span></div>
+      </div>
+      <div class="spec-card">
+        <div class="tag">Descritor · Inter</div>
+        <div class="big sans">Construção</div>
+        <div class="scale"><span>Grotesca neutra</span><span>500 / 600 / 700</span><span>Tracking aberto</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIRECTION A ============ -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Direção A</div>
+        <h2 class="font-display">Emmanuel Serviços em destaque</h2>
+        <p class="lead">Wordmark institucional protagonista + símbolo de casa com porta (lar). “domanu” entra discreto, como endereço da marca.</p>
+      </div>
+      <div class="num">A · institucional</div>
+    </div>
+
+    <!-- (a) horizontal -->
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="label"><span><span class="k">A·a</span> &nbsp;Horizontal</span><span>sobre areia</span></div>
+        <div class="stage surface-sand">
+          <div class="lk-h">
+            <svg class="sym" width="64" height="64" viewBox="0 0 64 64"><use href="#mark-house"/></svg>
+            <div class="wm">
+              <span class="name">Emmanuel</span>
+              <span class="sub">Serviços</span>
+              <span class="tag">Construção e empreendimentos · Minas Gerais</span>
+              <span class="micro">domanu.com.br</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label"><span><span class="k">A·a</span> &nbsp;Horizontal</span><span>sobre tinta</span></div>
+        <div class="stage surface-dark">
+          <div class="lk-h">
+            <svg class="sym" width="64" height="64" viewBox="0 0 64 64"><use href="#mark-house"/></svg>
+            <div class="wm">
+              <span class="name">Emmanuel</span>
+              <span class="sub">Serviços</span>
+              <span class="tag">Construção e empreendimentos · Minas Gerais</span>
+              <span class="micro">domanu.com.br</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (b) stacked -->
+    <div class="grid cols-2" style="margin-top:18px">
+      <div class="card">
+        <div class="label"><span><span class="k">A·b</span> &nbsp;Empilhada</span><span>sobre areia</span></div>
+        <div class="stage surface-sand">
+          <div class="lk-v">
+            <svg class="sym" width="58" height="58" viewBox="0 0 64 64"><use href="#mark-house"/></svg>
+            <div class="wm">
+              <span class="name">Emmanuel</span>
+              <span class="sub">Serviços</span>
+              <span class="tag">Construção e empreendimentos · Minas Gerais</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label"><span><span class="k">A·b</span> &nbsp;Empilhada</span><span>sobre tinta</span></div>
+        <div class="stage surface-dark">
+          <div class="lk-v">
+            <svg class="sym" width="58" height="58" viewBox="0 0 64 64"><use href="#mark-house"/></svg>
+            <div class="wm">
+              <span class="name">Emmanuel</span>
+              <span class="sub">Serviços</span>
+              <span class="tag">Construção e empreendimentos · Minas Gerais</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (c) symbol + (d) mono -->
+    <div class="grid cols-3" style="margin-top:18px">
+      <div class="card">
+        <div class="label"><span><span class="k">A·c</span> &nbsp;Símbolo</span><span>tile</span></div>
+        <div class="stage surface-sand" style="gap:18px">
+          <div style="display:flex;gap:16px;align-items:center">
+            <div class="tile"><svg class="sym" width="72" height="72" viewBox="0 0 64 64"><use href="#mark-house"/></svg></div>
+            <div class="tile terra"><svg width="72" height="72" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-house"/></svg></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label"><span><span class="k">A·c</span> &nbsp;Favicon</span><span>32 · 16 px</span></div>
+        <div class="stage surface-sand">
+          <div class="fav-row">
+            <div class="fav"><div class="box onterra" style="width:48px;height:48px"><svg width="34" height="34" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-house"/></svg></div><span class="px">32 px</span></div>
+            <div class="fav"><div class="box onterra" style="width:32px;height:32px"><svg width="22" height="22" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-house"/></svg></div><span class="px">actual 32</span></div>
+            <div class="fav"><div class="box onterra" style="width:16px;height:16px"><svg width="13" height="13" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-house"/></svg></div><span class="px">16</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label"><span><span class="k">A·d</span> &nbsp;Monocromática</span><span>1 cor</span></div>
+        <div class="stage surface-mono-sand" style="padding:0">
+          <div style="display:grid;grid-template-columns:1fr 1fr;width:100%;height:100%">
+            <div class="surface-mono-sand" style="background:var(--areia);display:grid;place-items:center;padding:20px">
+              <div class="lk-v" style="gap:10px"><svg class="sym" width="38" height="38" viewBox="0 0 64 64"><use href="#mark-house"/></svg><div class="wm"><span class="name" style="font-size:17px">Emmanuel</span><span class="sub" style="letter-spacing:.26em">Serviços</span></div></div>
+            </div>
+            <div class="surface-mono-dark" style="background:var(--tinta);display:grid;place-items:center;padding:20px">
+              <div class="lk-v" style="gap:10px"><svg class="sym" width="38" height="38" viewBox="0 0 64 64"><use href="#mark-house"/></svg><div class="wm"><span class="name" style="font-size:17px">Emmanuel</span><span class="sub" style="letter-spacing:.26em">Serviços</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIRECTION B ============ -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Direção B</div>
+        <h2 class="font-display">domanu como marca</h2>
+        <p class="lead">“domanu” protagonista, com o <em>o</em> construído como porta/portal. “Emmanuel Serviços” entra como descritor, sustentando a credibilidade.</p>
+      </div>
+      <div class="num">B · marca curta</div>
+    </div>
+
+    <!-- (a) horizontal -->
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="label"><span><span class="k">B·a</span> &nbsp;Horizontal</span><span>sobre areia</span></div>
+        <div class="stage surface-sand">
+          <div class="lk-h" style="gap:20px">
+            <span class="domanu">d<svg class="door-o" viewBox="0 0 64 64"><use href="#mark-door"/></svg>manu</span>
+            <span class="divider-v"></span>
+            <span class="desc"><span class="l1">Emmanuel Serviços</span><span class="l2">Construção e empreendimentos · Minas Gerais</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label"><span><span class="k">B·a</span> &nbsp;Horizontal</span><span>sobre tinta</span></div>
+        <div class="stage surface-dark">
+          <div class="lk-h" style="gap:20px">
+            <span class="domanu">d<svg class="door-o" viewBox="0 0 64 64"><use href="#mark-door"/></svg>manu</span>
+            <span class="divider-v"></span>
+            <span class="desc"><span class="l1">Emmanuel Serviços</span><span class="l2">Construção e empreendimentos · Minas Gerais</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (b) stacked -->
+    <div class="grid cols-2" style="margin-top:18px">
+      <div class="card">
+        <div class="label"><span><span class="k">B·b</span> &nbsp;Empilhada</span><span>sobre areia</span></div>
+        <div class="stage surface-sand">
+          <div class="lk-v" style="gap:14px">
+            <span class="domanu" style="font-size:48px">d<svg class="door-o" viewBox="0 0 64 64"><use href="#mark-door"/></svg>manu</span>
+            <span class="desc" style="text-align:center"><span class="l1">Emmanuel Serviços</span><span class="l2">Construção e empreendimentos · Minas Gerais</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label"><span><span class="k">B·b</span> &nbsp;Empilhada</span><span>sobre tinta</span></div>
+        <div class="stage surface-dark">
+          <div class="lk-v" style="gap:14px">
+            <span class="domanu" style="font-size:48px">d<svg class="door-o" viewBox="0 0 64 64"><use href="#mark-door"/></svg>manu</span>
+            <span class="desc" style="text-align:center"><span class="l1">Emmanuel Serviços</span><span class="l2">Construção e empreendimentos · Minas Gerais</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- (c) symbol + (d) mono -->
+    <div class="grid cols-3" style="margin-top:18px">
+      <div class="card">
+        <div class="label"><span><span class="k">B·c</span> &nbsp;Símbolo</span><span>tile</span></div>
+        <div class="stage surface-sand">
+          <div style="display:flex;gap:16px;align-items:center">
+            <div class="tile"><svg class="sym" width="74" height="74" viewBox="0 0 64 64"><use href="#mark-door"/></svg></div>
+            <div class="tile terra"><svg width="74" height="74" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label"><span><span class="k">B·c</span> &nbsp;Favicon</span><span>32 · 16 px</span></div>
+        <div class="stage surface-sand">
+          <div class="fav-row">
+            <div class="fav"><div class="box onterra" style="width:48px;height:48px"><svg width="34" height="34" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg></div><span class="px">32 px</span></div>
+            <div class="fav"><div class="box onterra" style="width:32px;height:32px"><svg width="22" height="22" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg></div><span class="px">actual 32</span></div>
+            <div class="fav"><div class="box onterra" style="width:16px;height:16px"><svg width="13" height="13" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg></div><span class="px">16</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label"><span><span class="k">B·d</span> &nbsp;Monocromática</span><span>1 cor</span></div>
+        <div class="stage" style="padding:0">
+          <div style="display:grid;grid-template-columns:1fr 1fr;width:100%;height:100%">
+            <div class="surface-mono-sand" style="background:var(--areia);display:grid;place-items:center;padding:20px">
+              <span class="domanu" style="font-size:26px;--fg:var(--tinta);--symbol:var(--tinta)">d<svg class="door-o" viewBox="0 0 64 64"><use href="#mark-door"/></svg>manu</span>
+            </div>
+            <div class="surface-mono-dark" style="background:var(--tinta);display:grid;place-items:center;padding:20px">
+              <span class="domanu" style="font-size:26px;--fg:var(--areia);--symbol:var(--areia)">d<svg class="door-o" viewBox="0 0 64 64"><use href="#mark-door"/></svg>manu</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEGIBILITY STRIP ============ -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Teste de escala</div>
+        <h2 class="font-display">O símbolo lê do grande ao 16 px</h2>
+        <p class="lead">Cada marca em tamanho de ícone real — app, favicon e selo. Geometria simples o bastante para não fechar nos tamanhos pequenos.</p>
+      </div>
+    </div>
+    <div class="strip">
+      <div>
+        <h3 class="font-display">A · Casa &amp; porta</h3>
+        <p class="cap">Símbolo da Direção A</p>
+        <div class="fav-row">
+          <div class="fav"><div class="box onterra" style="width:64px;height:64px"><svg width="46" height="46" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-house"/></svg></div><span class="px">64</span></div>
+          <div class="fav"><div class="box onterra" style="width:32px;height:32px"><svg width="22" height="22" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-house"/></svg></div><span class="px">32</span></div>
+          <div class="fav"><div class="box onterra" style="width:16px;height:16px"><svg width="13" height="13" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-house"/></svg></div><span class="px">16</span></div>
+          <div class="fav"><div class="box" style="width:32px;height:32px"><svg width="22" height="22" viewBox="0 0 64 64" style="color:var(--terra)"><use href="#mark-house"/></svg></div><span class="px">32 ↺</span></div>
+          <div class="fav"><div class="box ondark" style="width:32px;height:32px"><svg width="22" height="22" viewBox="0 0 64 64" style="color:var(--ambar)"><use href="#mark-house"/></svg></div><span class="px">32 ●</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-display">B · Porta / portal</h3>
+        <p class="cap">Símbolo da Direção B (o “o” de domanu)</p>
+        <div class="fav-row">
+          <div class="fav"><div class="box onterra" style="width:64px;height:64px"><svg width="46" height="46" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg></div><span class="px">64</span></div>
+          <div class="fav"><div class="box onterra" style="width:32px;height:32px"><svg width="22" height="22" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg></div><span class="px">32</span></div>
+          <div class="fav"><div class="box onterra" style="width:16px;height:16px"><svg width="13" height="13" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg></div><span class="px">16</span></div>
+          <div class="fav"><div class="box" style="width:32px;height:32px"><svg width="22" height="22" viewBox="0 0 64 64" style="color:var(--terra)"><use href="#mark-door"/></svg></div><span class="px">32 ↺</span></div>
+          <div class="fav"><div class="box ondark" style="width:32px;height:32px"><svg width="22" height="22" viewBox="0 0 64 64" style="color:var(--ambar)"><use href="#mark-door"/></svg></div><span class="px">32 ●</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MONOGRAM E+M ============ -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Exploração · marca complementar</div>
+        <h2 class="font-display">Monograma E+M</h2>
+        <p class="lead">O portal é o símbolo. O E+M entra como assinatura compacta — selo em relevo, padrão de fundo, avatar alternativo, detalhes onde o nome inteiro não cabe. Três caminhos para a ligatura.</p>
+      </div>
+      <div class="num">complementar</div>
+    </div>
+    <div class="mono-grid">
+      <div class="mono-tile">
+        <div class="stage2"><span class="mono-glyph lig" style="font-size:64px">E<span class="m">M</span></span></div>
+        <div class="cap2"><b>EM · versais ligadas</b><span>Clássico e institucional. Conversa com “Emmanuel”.</span></div>
+      </div>
+      <div class="mono-tile">
+        <div class="stage2"><span class="mono-glyph" style="font-size:62px;letter-spacing:-.03em">em</span></div>
+        <div class="cap2"><b>em · minúsculas</b><span>Acolhedor, alinhado ao “domanu” em caixa baixa.</span></div>
+      </div>
+      <div class="mono-tile">
+        <div class="stage2">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--areia)">
+            <svg width="66" height="24" viewBox="0 0 66 24" aria-hidden="true"><path d="M7 21 L33 5 L59 21" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="mono-glyph" style="font-size:46px;letter-spacing:-.02em">em</span>
+          </div>
+        </div>
+        <div class="cap2"><b>em · sob o telhado</b><span>As iniciais viram casa. Liga direto ao conceito de lar.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HIGH CONTRAST ============ -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Aplicação · reprodução em 1 cor</div>
+        <h2 class="font-display">Alto contraste — placa &amp; vestuário</h2>
+        <p class="lead">Versões de cor sólida e traço cheio para sobreviver a vinil, serigrafia, bordado, pintura em tapume e gravação. Uma cor sobre um fundo — máximo contraste, zero detalhe frágil.</p>
+      </div>
+      <div class="num">placa · camiseta</div>
+    </div>
+    <div class="hc-grid">
+      <div class="hc">
+        <div class="panel" style="background:var(--terra)">
+          <div class="lk-v" style="gap:16px">
+            <svg width="58" height="58" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg>
+            <span class="domanu" style="font-size:40px;--fg:var(--areia);--symbol:var(--areia)">d<svg class="door-o" viewBox="0 0 64 64"><use href="#mark-door"/></svg>manu</span>
+          </div>
+        </div>
+        <div class="cap2"><span>Areia sobre terracota</span><b>Tapume · fachada</b></div>
+      </div>
+      <div class="hc">
+        <div class="panel" style="background:var(--tinta)">
+          <div class="lk-v" style="gap:16px">
+            <svg width="58" height="58" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg>
+            <span class="domanu" style="font-size:40px;--fg:var(--areia);--symbol:var(--areia)">d<svg class="door-o" viewBox="0 0 64 64"><use href="#mark-door"/></svg>manu</span>
+          </div>
+        </div>
+        <div class="cap2"><span>Areia sobre tinta</span><b>Camiseta escura</b></div>
+      </div>
+      <div class="hc">
+        <div class="panel" style="background:var(--areia)">
+          <div class="lk-v" style="gap:16px">
+            <svg width="58" height="58" viewBox="0 0 64 64" style="color:var(--tinta)"><use href="#mark-door"/></svg>
+            <span class="domanu" style="font-size:40px;--fg:var(--tinta);--symbol:var(--tinta)">d<svg class="door-o" viewBox="0 0 64 64"><use href="#mark-door"/></svg>manu</span>
+          </div>
+        </div>
+        <div class="cap2"><span>Tinta sobre areia</span><b>Camiseta clara · documento</b></div>
+      </div>
+    </div>
+    <div class="guide">
+      <div><h4>Área de proteção</h4><p>Deixe ao redor do logo um respiro igual à altura do “d”. Nada de texto ou borda invade esse espaço.</p></div>
+      <div><h4>Tamanho mínimo</h4><p>Símbolo: 12 mm impresso / 16 px em tela. Wordmark: ~22 mm / 90 px de largura.</p></div>
+      <div><h4>Uma cor só</h4><p>Para bordado e gravação use o positivo (tinta) ou o negativo (areia). Sem degradê, sem sombra, sem contorno.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ SEAL ============ -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Carimbo · autoridade</div>
+        <h2 class="font-display">Selo — desde 2015</h2>
+        <p class="lead">Um emblema circular para carimbar orçamentos, placas de “obra entregue”, brindes e rodapés. Mesma família tipográfica, ar de tradição.</p>
+      </div>
+      <div class="num">desde 2015</div>
+    </div>
+    <div class="seal-row">
+      <div class="seal-card"><div class="seal-stage" style="background:var(--areia)">
+        <div class="seal" style="color:var(--terra)">
+          <span class="star4 t"></span><span class="star4 b"></span>
+          <div class="in">
+            <svg class="psym" viewBox="0 0 64 64"><use href="#mark-door"/></svg>
+            <span class="org">Emmanuel Serviços</span>
+            <span class="div2"></span>
+            <span class="yr">2015</span>
+            <span class="ml">Desde · Minas Gerais</span>
+          </div>
+        </div>
+      </div></div>
+      <div class="seal-card"><div class="seal-stage" style="background:var(--tinta)">
+        <div class="seal" style="color:var(--areia)">
+          <span class="star4 t"></span><span class="star4 b"></span>
+          <div class="in">
+            <svg class="psym" viewBox="0 0 64 64"><use href="#mark-door"/></svg>
+            <span class="org">Emmanuel Serviços</span>
+            <span class="div2"></span>
+            <span class="yr">2015</span>
+            <span class="ml">Desde · Minas Gerais</span>
+          </div>
+        </div>
+      </div></div>
+      <div class="seal-card"><div class="seal-stage" style="background:var(--terra)">
+        <div class="seal" style="color:var(--areia)">
+          <span class="star4 t"></span><span class="star4 b"></span>
+          <div class="in">
+            <svg class="psym" viewBox="0 0 64 64"><use href="#mark-door"/></svg>
+            <span class="org">Emmanuel Serviços</span>
+            <span class="div2"></span>
+            <span class="yr">2015</span>
+            <span class="ml">Desde · Minas Gerais</span>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ============ CONTRAST ============ -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Acessibilidade</div>
+        <h2 class="font-display">Contraste validado</h2>
+        <p class="lead">O símbolo testado em cada fundo. Referência WCAG 2.1: 3:1 é o mínimo para elementos gráficos; acima de 4.5:1 há folga confortável.</p>
+      </div>
+    </div>
+    <div class="contrast">
+      <div class="crow">
+        <div class="cs" style="background:var(--areia)"><svg width="40" height="40" viewBox="0 0 64 64" style="color:var(--terra)"><use href="#mark-door"/></svg></div>
+        <div class="clabel">Terracota ▸ Areia<span>Fundo claro padrão</span></div>
+        <div class="cratio cpass">4,3:1</div>
+        <div class="cverdict cpass"><b>✓ Aprovado</b>Uso livre do símbolo em fundo claro.</div>
+      </div>
+      <div class="crow">
+        <div class="cs" style="background:var(--tinta)"><svg width="40" height="40" viewBox="0 0 64 64" style="color:var(--terra)"><use href="#mark-door"/></svg></div>
+        <div class="clabel">Terracota ▸ Tinta<span>Símbolo terracota no escuro</span></div>
+        <div class="cratio cwarn">3,1:1</div>
+        <div class="cverdict cwarn"><b>⚠ Limítrofe</b>Passa o mínimo gráfico, mas sem folga. Evite em ícone pequeno.</div>
+      </div>
+      <div class="crow">
+        <div class="cs" style="background:var(--tinta)"><svg width="40" height="40" viewBox="0 0 64 64" style="color:var(--ambar)"><use href="#mark-door"/></svg></div>
+        <div class="clabel">Âmbar ▸ Tinta<span>Cor de marca no escuro</span></div>
+        <div class="cratio cpass">7,0:1</div>
+        <div class="cverdict cpass"><b>✓✓ Recomendado</b>Solução para fundos escuros — clara e quente.</div>
+      </div>
+      <div class="crow">
+        <div class="cs" style="background:var(--tinta)"><svg width="40" height="40" viewBox="0 0 64 64" style="color:var(--areia)"><use href="#mark-door"/></svg></div>
+        <div class="clabel">Areia ▸ Tinta<span>Negativo / knockout</span></div>
+        <div class="cratio cpass">13,1:1</div>
+        <div class="cverdict cpass"><b>✓✓ Ótimo</b>Máxima legibilidade — ideal para placa e camiseta.</div>
+      </div>
+      <div class="crule"><b>Regra da marca:</b> terracota em fundos claros. Em fundo escuro, troque por <b>âmbar</b> (7:1) ou pelo negativo em areia. Reserve terracota sobre tinta apenas para peças grandes (placa, capa) — nunca em ícone pequeno.</div>
+    </div>
+  </section>
+
+  <!-- ============ RATIONALE ============ -->
+  <section>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Raciocínio</div>
+        <h2 class="font-display">Por trás de cada direção</h2>
+      </div>
+    </div>
+    <div class="rationale">
+      <div class="note">
+        <div class="role">Direção A</div>
+        <h3 class="font-display">Emmanuel Serviços em destaque</h3>
+        <p>Coloca o nome oficial à frente — é ele que aparece em contrato, nota fiscal e placa de obra. O símbolo é uma <b>casa com porta</b>: telhado de duas águas, cantos suavizados, abertura central que sugere acolhimento. Honra a referência atual (ícone de telhado em terracota), mas fecha a forma para ganhar presença de selo.</p>
+        <ul>
+          <li><b>Quando usa:</b> documentos, fachada, parcerias, crédito imobiliário.</li>
+          <li><b>Força:</b> credibilidade imediata, tradição, fácil de reconhecer.</li>
+          <li><b>Atenção:</b> “domanu” fica reduzido a endereço — perde força como marca.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <div class="role">Direção B</div>
+        <h3 class="font-display">domanu como marca</h3>
+        <p>Aposta na marca curta e memorável. O <b>o</b> vira porta/portal — domus (lar) literalmente desenhado dentro do nome. “Emmanuel Serviços” sustenta como descritor, então nada de credibilidade se perde. Mais contemporânea, ótima para digital, redes e o próprio domínio.</p>
+        <ul>
+          <li><b>Quando usa:</b> site, Instagram, app, favicon, marketing.</li>
+          <li><b>Força:</b> curto, distinto, conceito de “lar” embutido no nome.</li>
+          <li><b>Atenção:</b> nome novo exige construir reconhecimento ao longo do tempo.</li>
+        </ul>
+      </div>
+
+      <div class="reco note">
+        <div class="role">Definido</div>
+        <h3 class="font-display"><span class="star">★</span> O portal (B) é o símbolo da marca</h3>
+        <p>Seguimos com o <b>portal-porta</b> como símbolo e <b>domanu</b> (minúsculo) como wordmark, tendo “Emmanuel Serviços” como descritor que sustenta a credibilidade. A <b>casa (A)</b> não é descartada: recua para um papel de apoio nas peças onde o nome oficial precisa aparecer sozinho — placa legal, documento, carimbo institucional. No escuro, a cor de marca passa a ser o <b>âmbar</b> (contraste 7:1). Um só sistema, leitura impecável de 16 px a outdoor.</p>
+      </div>
+
+      <div class="note" style="grid-column:1 / -1">
+        <div class="role">Em aberto</div>
+        <h3 class="font-display">Próximas decisões</h3>
+        <ul>
+          <li>Qual das três ligaturas <b>E+M</b> seguir — versais, minúsculas ou “sob o telhado” — ou guardamos o monograma só para relevo/padrão?</li>
+          <li>Tratamento final de “Serviços” no lockup: caixa alta espaçada (atual) ou em Fraunces acompanhando “Emmanuel”?</li>
+          <li>Aprovar a <b>regra de cor</b>: âmbar como marca em fundo escuro, terracota reservado a peças grandes.</li>
+          <li>Formatos de entrega: SVG + PNG (@1×/2×/3×) + PDF vetorial + favicon (.ico/.svg). Quer que eu gere o pacote e aplique no header/favicon do site?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Folha de marca — Emmanuel Serviços · domanu.com.br · Construção e empreendimentos · Minas Gerais
+  </footer>
+
+</div>
+
+<script>
+  // Inline the symbol paths into every <use> host so rendering is identical
+  // in real browsers AND in html-to-image captures (which handle <use> poorly).
+  var MARKS = {
+    'mark-house': '<path fill="currentColor" stroke="currentColor" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill-rule="evenodd" d="M13 54 L13 30 L32 13.5 L51 30 L51 54 Z M26.5 54 L26.5 41 Q26.5 35.6 32 35.6 Q37.5 35.6 37.5 41 L37.5 54 Z"/>',
+    'mark-door': '<path fill="currentColor" fill-rule="evenodd" d="M20 6 H44 Q58 6 58 20 V44 Q58 58 44 58 H20 Q6 58 6 44 V20 Q6 6 20 6 Z M24 50 V33 Q24 22 32 22 Q40 22 40 33 V50 Z"/>'
+  };
+  document.querySelectorAll('use').forEach(function(u){
+    var ref = (u.getAttribute('href') || u.getAttribute('xlink:href') || '').replace('#','');
+    if (MARKS[ref]) { u.parentNode.innerHTML = MARKS[ref]; }
+  });
+</script>
+
+</body>
+</html>

@@ -10,8 +10,9 @@
 interface Props {
   variant?: 'light' | 'dark';
   href?: string;
+  showSub?: boolean; // exibe o descritor "Emmanuel Serviços" abaixo do wordmark
 }
-const { variant = 'light', href = '#top' } = Astro.props;
+const { variant = 'light', href = '#top', showSub = true } = Astro.props;
 
 const isDark = variant === 'dark';
 const nameColor = isDark ? '#F5EDE2' : '#2B2420'; // areia | tinta
@@ -37,11 +38,15 @@ const doorPath =
       <path fill="currentColor" fill-rule="evenodd" d={doorPath}></path>
     </svg>manu
   </span>
-  <span
-    class="font-sans font-semibold uppercase text-[10px] tracking-[0.22em] mt-1.5"
-    style={`color:${subColor}`}
-    aria-hidden="true"
-  >
-    Emmanuel Serviços
-  </span>
+  {
+    showSub && (
+      <span
+        class="font-sans font-semibold uppercase text-[10px] tracking-[0.22em] mt-1.5"
+        style={`color:${subColor}`}
+        aria-hidden="true"
+      >
+        Emmanuel Serviços
+      </span>
+    )
+  }
 </a>
