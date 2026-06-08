@@ -22,16 +22,17 @@
 
 | Unidade | Área | Suíte | Entrada (2×) | Financiamento 80% | Valor total | Status |
 |---|---|---|---|---|---|---|
-| 101 | 82,72 m² | Sim | 2× R$ 64.800 | R$ 518.400 | **R$ 648.000** | Disponível |
-| 102 | 63 m² | Sim | — | — | — | Vendido |
-| 201 | 63 m² | Sim | 2× R$ 51.500 | R$ 412.000 | **R$ 515.000** | Disponível |
-| 202 | 63 m² | Sim | 2× R$ 51.500 | R$ 412.000 | **R$ 515.000** | Disponível |
-| 301 | 63 m² | Sim | 2× R$ 51.000 | R$ 408.000 | **R$ 510.000** | Disponível |
-| 302 | 63 m² | Sim | 2× R$ 51.500 | R$ 412.000 | **R$ 515.000** | Disponível |
+| 101 | 82,72 m² | Sim | 2× R$ 65.500 | R$ 524.000 | **R$ 655.000** | Disponível |
+| 102 | 63 m² | Sim | — | — | — (interno: R$ 678.000) | Vendido |
+| 201 | 63 m² | Sim | 2× R$ 52.500 | R$ 420.000 | **R$ 525.000** | Disponível |
+| 202 | 63 m² | Sim | 2× R$ 52.500 | R$ 420.000 | **R$ 525.000** | Disponível |
+| 301 | 63 m² | Sim | 2× R$ 52.000 | R$ 416.000 | **R$ 520.000** | Disponível |
+| 302 | 63 m² | Sim | 2× R$ 52.000 | R$ 416.000 | **R$ 520.000** | Disponível |
 | 401 | 63 m² | Sim | — | — | — | Vendido |
-| 402 (Cobertura) | 126 m² | Sim | 2× R$ 74.500 | R$ 596.000 | **R$ 745.000** | Disponível |
+| 402 (Cobertura) | 126 m² | Sim | 2× R$ 75.700 | R$ 605.600 | **R$ 757.000** | Disponível |
 
-*A partir de **R$ 510.000**. Entrega das chaves na assinatura do financiamento; entrada com opção de parcelamento.*
+*A partir de **R$ 520.000**. Entrega das chaves na assinatura do financiamento; entrada com opção de parcelamento.*
+*Preços atualizados em 07/06/2026 (solicitação de Vinicius Oliveira). O valor do apto 102 (R$ 678.000) é correção interna de planilha de custos — não exibido no site (unidade vendida).*
 
 ### Localização — pontos de interesse (do flyer)
 Mart Minas, EPA Supermercados, Villefort Atacarejo, Feira Minas, Laboratório Hermes Pardini, Fit One Academia, Região da Pampulha, acesso ao Centro e a Contagem.

@@ -87,10 +87,10 @@ unidades:
   - identificacao: '101'
     area_m2: 82.72
     suite: true
-    entrada: 64800
+    entrada: 65500
     entrada_parcelas: 2
-    financiamento: 518400
-    preco: 648000
+    financiamento: 524000
+    preco: 655000
     status: disponivel
   - identificacao: '102'
     area_m2: 63
@@ -100,34 +100,34 @@ unidades:
   - identificacao: '201'
     area_m2: 63
     suite: true
-    entrada: 51500
+    entrada: 52500
     entrada_parcelas: 2
-    financiamento: 412000
-    preco: 515000
+    financiamento: 420000
+    preco: 525000
     status: disponivel
   - identificacao: '202'
     area_m2: 63
     suite: true
-    entrada: 51500
+    entrada: 52500
     entrada_parcelas: 2
-    financiamento: 412000
-    preco: 515000
+    financiamento: 420000
+    preco: 525000
     status: disponivel
   - identificacao: '301'
     area_m2: 63
     suite: true
-    entrada: 51000
+    entrada: 52000
     entrada_parcelas: 2
-    financiamento: 408000
-    preco: 510000
+    financiamento: 416000
+    preco: 520000
     status: disponivel
   - identificacao: '302'
     area_m2: 63
     suite: true
-    entrada: 51500
+    entrada: 52000
     entrada_parcelas: 2
-    financiamento: 412000
-    preco: 515000
+    financiamento: 416000
+    preco: 520000
     status: disponivel
   - identificacao: '401'
     area_m2: 63
@@ -137,10 +137,10 @@ unidades:
   - identificacao: 402 (Cobertura)
     area_m2: 126
     suite: true
-    entrada: 74500
+    entrada: 75700
     entrada_parcelas: 2
-    financiamento: 596000
-    preco: 745000
+    financiamento: 605600
+    preco: 757000
     status: disponivel
 
 contato:
