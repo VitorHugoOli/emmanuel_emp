@@ -1,7 +1,11 @@
 ---
 /**
- * Wordmark tipográfico "Emmanuel Serviços" com ícone de telhado.
- * variant controla as cores para fundo claro (header) ou escuro (rodapé).
+ * Marca da Emmanuel Serviços — Direção B (escolhida).
+ * Wordmark "domanu" em Fraunces, com o "o" desenhado como porta/portal
+ * (símbolo mark-door). "Emmanuel Serviços" (nome oficial/CNPJ) entra como
+ * descritor, sustentando a credibilidade.
+ *
+ * variant: 'light' (header / fundo claro) | 'dark' (rodapé / fundo escuro)
  */
 interface Props {
   variant?: 'light' | 'dark';
@@ -9,29 +13,35 @@ interface Props {
 }
 const { variant = 'light', href = '#top' } = Astro.props;
 
-const boxClass = variant === 'dark' ? 'bg-terracota/20 text-ambar' : 'bg-terracota/10 text-terracota';
-const nomeClass = variant === 'dark' ? 'text-areia' : 'text-tinta';
-const subClass = variant === 'dark' ? 'text-ambar' : 'text-terracota';
+const isDark = variant === 'dark';
+const nameColor = isDark ? '#F5EDE2' : '#2B2420'; // areia | tinta
+const doorColor = isDark ? '#E0A458' : '#B5532E'; // âmbar | terracota
+const subColor = isDark ? '#E0A458' : '#B5532E';
+
+const doorPath =
+  'M20 6 H44 Q58 6 58 20 V44 Q58 58 44 58 H20 Q6 58 6 44 V20 Q6 6 20 6 Z M24 50 V33 Q24 22 32 22 Q40 22 40 33 V50 Z';
 ---
 
-<a href={href} class="flex items-center gap-2.5 shrink-0" aria-label="Emmanuel Serviços — início">
-  <span class={`grid place-items-center h-9 w-9 rounded-xl ${boxClass}`}>
-    <svg
-      viewBox="0 0 24 24"
-      class="h-5 w-5"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+<a href={href} class="flex flex-col leading-none shrink-0" aria-label="domanu — Emmanuel Serviços, início">
+  <span
+    class="font-display font-semibold inline-flex items-baseline text-[26px] tracking-[-0.01em]"
+    style={`color:${nameColor};line-height:.9`}
+    aria-hidden="true"
+  >
+    d<svg
+      viewBox="0 0 64 64"
+      class="inline-block"
+      style={`width:.84em;height:.84em;margin:0 .015em;transform:translateY(.135em);color:${doorColor}`}
       aria-hidden="true"
     >
-      <path d="M3 11.5 12 4l9 7.5"></path>
-      <path d="M5 10.5V20h14v-9.5"></path>
-    </svg>
+      <path fill="currentColor" fill-rule="evenodd" d={doorPath}></path>
+    </svg>manu
   </span>
-  <span class="leading-none">
-    <span class={`block font-display text-[19px] font-semibold tracking-tight ${nomeClass}`}>Emmanuel</span>
-    <span class={`block text-[11px] font-medium uppercase tracking-[0.22em] -mt-0.5 ${subClass}`}>Serviços</span>
+  <span
+    class="font-sans font-semibold uppercase text-[10px] tracking-[0.22em] mt-1.5"
+    style={`color:${subColor}`}
+    aria-hidden="true"
+  >
+    Emmanuel Serviços
   </span>
 </a>
