@@ -19,5 +19,8 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    preview: {
+      allowedHosts: ['emmanuel-emp.internal', 'emmanuel-emp.tailae9be.ts.net', 'all'],
+    },
   },
 });
